@@ -100,4 +100,12 @@ curl -s -k -X POST "$KEYCLOAK_URL/auth/admin/realms/$REALM/authentication/execut
     }
 }'
 
+# Set custom Browser Flow as the default browser flow
+echo "Setting 'chedi Custom Lastlogintime' as the default browser flow..."
+curl -s -k -X PUT "$KEYCLOAK_URL/auth/admin/realms/$REALM" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"browserFlow\": \"chedi Custom Lastlogintime\"}"
+
+
 echo "✅ Authentication flow setup complete."

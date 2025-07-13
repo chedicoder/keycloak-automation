@@ -9,7 +9,7 @@ CLIENT_ID="admin-cli"
 MAPPER_FILE1="PingDS-mappers.json"
 MAPPER_FILE2="LDAP-MT-mappers.json"
 PingDS_name="PingDS1"
-LDAP_name="LDAP_MT"
+LDAP_name="LDAP_MT1"
 USERS_FILE="users.json"
 CLIENTS_FILE="clients.json"
 
@@ -46,7 +46,7 @@ curl -s -k -X POST "$KEYCLOAK_URL/auth/admin/realms/$REALM/components" \
       "cachePolicy": ["NO_CACHE"],
       "useKerberosForPasswordAuthentication": ["false"],
       "importEnabled": ["true"],
-      "enabled": ["true"],
+      "enabled": ["false"],
       "usernameLDAPAttribute": ["uid"],
       "bindCredential": ["m2CFxdLJpZDFAZTUReNDOXlK3Lc8BKpA"],
       "changedSyncPeriod": ["-1"],
@@ -84,7 +84,7 @@ curl -s -k -X POST "$KEYCLOAK_URL/auth/admin/realms/$REALM/components" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "LDAP_MT",
+    "name": "'"$LDAP_name"'",
     "providerId": "ldap",
     "providerType": "org.keycloak.storage.UserStorageProvider",
     "parentId": "'"$REALM"'",
@@ -96,7 +96,7 @@ curl -s -k -X POST "$KEYCLOAK_URL/auth/admin/realms/$REALM/components" \
       "cachePolicy": ["NO_CACHE"],
       "useKerberosForPasswordAuthentication": ["false"],
       "importEnabled": ["true"],
-      "enabled": ["true"],
+      "enabled": ["false"], 
       "usernameLDAPAttribute": ["sAMAccountName"],
       "bindCredential": ["sso$modernSic*25"],
       "changedSyncPeriod": ["-1"],
