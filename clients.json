@@ -1,0 +1,24 @@
+[
+  {
+    "clientId": "client1",
+    "publicClient": true,
+    "directAccessGrantsEnabled": true,
+    "redirectUris": [
+          "http://10.100.227.187:8080/custcare_cu/*",
+          "http://localhost:4200/*",
+          "http://10.100.227.184:8080/custcare_cu/*",
+          "http://localhost:4201/*",
+          "http://10.100.227.184:8080/custcare_cu/Home.su",
+          "http://localhost:4204/*",
+          "http://10.100.227.184:8080/admx_full/*",
+          "http://10.100.227.184:8080/ax_full/*",
+          "http://localhost:4205/*",
+          "http://10.100.227.184:8080/custcare_bp/*",
+          "https://app.msicdev.iamdg.net.ma/*",
+          "http://localhost:4203/*" 
+        ],
+    "webOrigins": ["*"],
+    "enabled": true,
+    "protocol": "openid-connect"
+  }
+]

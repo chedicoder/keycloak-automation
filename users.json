@@ -1,0 +1,107 @@
+[
+  {
+    "username": "intsoiusr",
+    "email": "",
+    "firstName": "INTSOIUSR user",
+    "lastName": "INTSOIUSR",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_INTSOIUSR"]
+  },
+  {
+    "username": "soiuser",
+    "email": "",
+    "firstName": "SOIUSER user",
+    "lastName": "SOIUSER",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_SOIUSER"]
+  },
+  {
+    "username": "soics",
+    "email": "",
+    "firstName": "SOICS user",
+    "lastName": "SOICS",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_SOICS"]
+  },
+  {
+    "username": "evhsoicl",
+    "email": "",
+    "firstName": "EVHSOICL user",
+    "lastName": "EVHSOICL",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_EVHSOICL"]
+  },
+  {
+    "username": "bee",
+    "email": "",
+    "firstName": "BEE user",
+    "lastName": "BEE",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_BEE"]
+  },
+  {
+    "username": "oab",
+    "email": "",
+    "firstName": "OAB user",
+    "lastName": "OAB",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_OAB"]
+  },
+  {
+    "username": "cab",
+    "email": "",
+    "firstName": "CAB user",
+    "lastName": "CAB",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_CAB"]
+  },
+  {
+    "username": "CIL",
+    "email": "",
+    "firstName": "CIL user",
+    "lastName": "CIL",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_CIL"]
+  },
+  {
+    "username": "msc",
+    "email": "",
+    "firstName": "MSC user",
+    "lastName": "MSC",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_MSC"]
+  },
+  {
+    "username": "ceb",
+    "email": "",
+    "firstName": "CEB user",
+    "lastName": "CEB",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_CEB"]
+  },
+  {
+    "username": "cdi",
+    "email": "",
+    "firstName": "CDI user",
+    "lastName": "CDI",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_CDI"]
+  },
+  {
+    "username": "wms",
+    "email": "",
+    "firstName": "WMS user",
+    "lastName": "WMS",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_WMS"]
+  },
+  {
+    "username": "dcs",
+    "email": "",
+    "firstName": "DCS USER",
+    "lastName": "DCS",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_DCS"]
+  },
+  {
+    "username": "bdm",
+    "email": "",
+    "firstName": "BDM USER",
+    "lastName": "BDM",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_BDM"]
+  },
+  {
+    "username": "ecs",
+    "email": "",
+    "firstName": "ECS user",
+    "lastName": "ECS",
+    "groups": ["BSCS_ApplicationUsers", "ROLE_ECS"]
+  }
+]

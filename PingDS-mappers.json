@@ -1,0 +1,190 @@
+[
+  {
+    "name": "Preferred-lang",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["preferredLanguage"],
+      "ldap.attribute": ["preferredLanguage"],
+      "read.only": ["false"],
+      "always.read.value.from.ldap": ["false"],
+      "is.mandatory.in.ldap": ["true"],
+      "attribute.default.value": ["fr"],
+      "force.default.value": ["true"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+    "name": "Active-status",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["inetUserStatus"],
+      "ldap.attribute": ["inetUserStatus"],
+      "read.only": ["false"],
+      "always.read.value.from.ldap": ["false"],
+      "is.mandatory.in.ldap": ["true"],
+      "attribute.default.value": ["Active"],
+      "force.default.value": ["true"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+    "name": "Preferred-locale",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["preferredLocale"],
+      "ldap.attribute": ["preferredLocale"],
+      "read.only": ["false"],
+      "always.read.value.from.ldap": ["false"],
+      "is.mandatory.in.ldap": ["true"],
+      "attribute.default.value": ["FR"],
+      "force.default.value": ["true"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+    "name": "Common-name",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["username"],
+      "ldap.attribute": ["cn"],
+      "read.only": ["false"],
+      "always.read.value.from.ldap": ["false"],
+      "is.mandatory.in.ldap": ["true"],
+      "attribute.default.value": [""],
+      "force.default.value": ["false"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+    "name": "Username",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["username"],
+      "ldap.attribute": ["uid"],
+      "read.only": ["false"],
+      "always.read.value.from.ldap": ["false"],
+      "is.mandatory.in.ldap": ["true"],
+      "attribute.default.value": [""],
+      "force.default.value": ["true"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+  "name": "Group",
+  "providerId": "group-ldap-mapper",
+  "config": {
+    "groups.dn": ["ou=groups,ou=identities"],
+    "group.name.ldap.attribute": ["cn"],
+    "group.object.classes": ["groupOfUniqueNames"],
+    "preserve.group.inheritance": ["false"],
+    "ignore.missing.groups": ["false"],
+    "membership.ldap.attribute": ["uniqueMember"],
+    "membership.attribute.type": ["DN"],
+    "membership.user.ldap.attribute": ["uid"],
+    "mode": ["LDAP_ONLY"],
+    "user.roles.retrieve.strategy": ["LOAD_GROUPS_BY_MEMBER_ATTRIBUTE"],
+    "memberof.ldap.attribute": ["memberOf"],
+    "mapped.group.attributes": ["uniqueMember"],
+    "drop.non.existing.groups.during.sync": ["false"],
+    "groups.path": ["/"]
+  }
+},
+  {
+    "name": "modify Date",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["modifyTimestamp"],
+      "ldap.attribute": ["modifyTimestamp"],
+      "read.only": ["true"],
+      "always.read.value.from.ldap": ["true"],
+      "is.mandatory.in.ldap": ["false"],
+      "attribute.default.value": [""],
+      "force.default.value": ["true"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+    "name": "first Name",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["firstName"],
+      "ldap.attribute": ["cn"],
+      "read.only": ["false"],
+      "always.read.value.from.ldap": ["true"],
+      "is.mandatory.in.ldap": ["true"],
+      "attribute.default.value": [""],
+      "force.default.value": ["true"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+    "name": "Interim-ad-username",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["interimADUsername"],
+      "ldap.attribute": ["interimADUsername"],
+      "read.only": ["false"],
+      "always.read.value.from.ldap": ["false"],
+      "is.mandatory.in.ldap": ["false"],
+      "attribute.default.value": [""],
+      "force.default.value": ["false"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+    "name": "email",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["email"],
+      "ldap.attribute": ["mail"],
+      "read.only": ["false"],
+      "always.read.value.from.ldap": ["false"],
+      "is.mandatory.in.ldap": ["false"],
+      "attribute.default.value": [""],
+      "force.default.value": ["true"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+    "name": "creation Date",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["createTimestamp"],
+      "ldap.attribute": ["createTimestamp"],
+      "read.only": ["true"],
+      "always.read.value.from.ldap": ["true"],
+      "is.mandatory.in.ldap": ["false"],
+      "attribute.default.value": [""],
+      "force.default.value": ["true"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+    "name": "last Name",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["lastName"],
+      "ldap.attribute": ["sn"],
+      "read.only": ["false"],
+      "always.read.value.from.ldap": ["true"],
+      "is.mandatory.in.ldap": ["true"],
+      "attribute.default.value": [""],
+      "force.default.value": ["true"],
+      "is.binary.attribute": ["false"]
+    }
+  },
+  {
+    "name": "referenced-ad-username",
+    "providerId": "user-attribute-ldap-mapper",
+    "config": {
+      "user.model.attribute": ["referencedADUsername"],
+      "ldap.attribute": ["referencedADUsername"],
+      "read.only": ["false"],
+      "always.read.value.from.ldap": ["false"],
+      "is.mandatory.in.ldap": ["false"],
+      "attribute.default.value": [""],
+      "force.default.value": ["false"],
+      "is.binary.attribute": ["false"]
+    }
+  }
+]
