@@ -276,41 +276,5 @@ jq -c '.[]' "$CLIENTS_FILE" | while read -r client; do
   fi  
 done    
 
-# Creating custom authentication flow Msic Custom Lastlogintime
-echo "Creating custom authentication flow..."
-curl -s -k -X POST "https://$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows" \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "alias": "Msic Custom Lastlogintime",
-    "description": "Custom flow for MSIC with login time recording",
-    "providerId": "basic-flow",
-    "topLevel": true,
-    "builtIn": false
-}'
-
-curl -X POST "https://<KEYCLOAK_URL>/admin/realms/<realm-name>/authentication/flows/Msic%20Custom%20Lastlogintime/executions/execution" \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{"provider": "auth-cookie"}'
-curl -X POST "https://<KEYCLOAK_URL>/admin/realms/<realm-name>/authentication/flows/Msic%20Custom%20Lastlogintime/executions/execution" \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{"provider": "auth-kerberos"}'
-curl -X POST "https://<KEYCLOAK_URL>/admin/realms/<realm-name>/authentication/flows/Msic%20Custom%20Lastlogintime/executions/execution" \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{"provider": "identity-provider-redirector"}'
-curl -X POST "https://<KEYCLOAK_URL>/admin/realms/<realm-name>/authentication/flows/Msic%20Custom%20Lastlogintime/executions/flow" \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "alias": "Msic Custom Lastlogintime Forms",
-    "type": "basic-flow",
-    "provider": "basic-flow",
-    "description": "Subflow for MSIC",
-    "builtIn": false
-}'
-
 
 echo "done"
