@@ -1,0 +1,1495 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    cni.projectcalico.org/containerID: 5ab244a8e7747f0ea5cf62f1bdc9b7bb2ae1b059dec000dd3c499d93342d36b2
+    cni.projectcalico.org/podIP: 10.42.4.123/32
+    cni.projectcalico.org/podIPs: 10.42.4.123/32
+    ericsson.com/product-name: Identity and Access Management
+    ericsson.com/product-number: CXD 101 189
+    ericsson.com/product-revision: 22.4.0
+    kubernetes.io/egress-bandwidth: 30M
+  creationTimestamp: '2025-07-10T14:05:56Z'
+  generateName: eric-sec-access-mgmt-
+  labels:
+    antiAffinity: eric-sec-access-mgmt
+    app: eric-sec-access-mgmt
+    app.kubernetes.io/instance: adp24
+    app.kubernetes.io/name: eric-sec-access-mgmt
+    app.kubernetes.io/version: 22.4.0_40
+    apps.kubernetes.io/pod-index: '0'
+    chart: eric-sec-access-mgmt-22.4.0_40
+    controller-revision-hash: eric-sec-access-mgmt-7756f4747d
+    eric-fh-alarm-handler-access: 'true'
+    eric-idam-database-pg-access: 'true'
+    eric-sec-access-mgmt-access: 'true'
+    eric-sec-ldap-server-access: 'true'
+    headlessService: eric-sec-access-mgmt-headless-v1
+    heritage: Helm
+    pdb: eric-sec-access-mgmt
+    release: adp24
+    sidecar.istio.io/inject: 'false'
+    statefulset.kubernetes.io/pod-name: eric-sec-access-mgmt-0
+  managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:ericsson.com/product-name: {}
+            f:ericsson.com/product-number: {}
+            f:ericsson.com/product-revision: {}
+            f:kubernetes.io/egress-bandwidth: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:antiAffinity: {}
+            f:app: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:apps.kubernetes.io/pod-index: {}
+            f:chart: {}
+            f:controller-revision-hash: {}
+            f:eric-fh-alarm-handler-access: {}
+            f:eric-idam-database-pg-access: {}
+            f:eric-sec-access-mgmt-access: {}
+            f:eric-sec-ldap-server-access: {}
+            f:headlessService: {}
+            f:heritage: {}
+            f:pdb: {}
+            f:release: {}
+            f:sidecar.istio.io/inject: {}
+            f:statefulset.kubernetes.io/pod-name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"2dfb7430-a816-4216-9b51-86a828624a4d"}: {}
+        f:spec:
+          f:affinity:
+            .: {}
+            f:podAntiAffinity:
+              .: {}
+              f:requiredDuringSchedulingIgnoredDuringExecution: {}
+          f:containers:
+            k:{"name":"iam"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"AH_CLIENT_CERT_MOUNT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"ALLOWED_HOSTS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"AUTH_PROXY_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CONTAINER_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CUSTOM_SPI_PROVIDERS_CHECKSUMS_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CUSTOM_SPI_PROVIDERS_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"CUSTOM_SPI_PROVIDER_INJECTION_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DB_ADDR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DB_DATABASE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DB_PORT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DB_VENDOR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DUMMY_ENV_TO_UPDATE_LEGAL_MESSAGE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"EGRESS_LDAP_TRUSTED_CA_CERT_MOUNT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HA_CERT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HA_KEYSTORE_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HA_TRUSTED_CA_CERT_MOUNT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HA_TRUSTSTORE_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HEADLESS_SERVICE_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROBE_CMD_DIR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROBE_CONTAINER_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROBE_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROBE_POD_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:fieldRef: {}
+                k:{"name":"HTTP_PROBE_PORT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROBE_SERVICE_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_CLIENT_CA_CERT_PATH_1"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_DECLARATIVE_USER_PROFILE_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_DOCKERV2_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_INGRESS_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_INT_CA_CERT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_INT_CLIENT_CERT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_INT_PROBE_CLIENT_CERT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_IPV6_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_SCRIPT_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_SERVICE_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"ICCR_CLIENT_CA_CERT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"INITIAL_MEMORY_ALLOCATION"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"INTERNAL_HOSTS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IS_POST_LOGIN_PAGE_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"JDBC_PARAMS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"KC_ADM_CREDS_MNT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"KC_DB_USERNAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"KC_HOSTNAME_ADMIN_URL"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"KC_HOSTNAME_URL"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"KC_PWD_KEY"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"KC_USERNAME_KEY"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"KEYCLOAK_USER"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:secretKeyRef: {}
+                k:{"name":"LARGE_MEMORY_ALLOCATION_MAX"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"LAST_LOGIN_TIME_FLOW_ALIAS"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"LOG_LEVEL"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"NO_LOCK_ATTRIBUTE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"PG_CLIENT_CERT_MOUNT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"POD_IPS"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:fieldRef: {}
+                k:{"name":"RECORD_LOGIN_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"RUNDIR_SAFE_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVER_CERT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVICE_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SIP_OAUTH2_CLIENT_SECRET_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SIP_OAUTH2_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SMALL_MEMORY_ALLOCATION_MAX"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"TLS_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"TRUSTED_CA_CERT_MOUNT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"TZ"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:livenessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":57600,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+                k:{"containerPort":7600,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+                k:{"containerPort":8443,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:name: {}
+                  f:protocol: {}
+              f:readinessProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:resources:
+                .: {}
+                f:limits:
+                  .: {}
+                  f:cpu: {}
+                  f:ephemeral-storage: {}
+                  f:memory: {}
+                f:requests:
+                  .: {}
+                  f:cpu: {}
+                  f:ephemeral-storage: {}
+                  f:memory: {}
+              f:securityContext:
+                .: {}
+                f:allowPrivilegeEscalation: {}
+                f:capabilities:
+                  .: {}
+                  f:drop: {}
+                f:privileged: {}
+                f:readOnlyRootFilesystem: {}
+                f:runAsNonRoot: {}
+              f:startupProbe:
+                .: {}
+                f:failureThreshold: {}
+                f:httpGet:
+                  .: {}
+                  f:path: {}
+                  f:port: {}
+                  f:scheme: {}
+                f:initialDelaySeconds: {}
+                f:periodSeconds: {}
+                f:successThreshold: {}
+                f:timeoutSeconds: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+              f:volumeMounts:
+                .: {}
+                k:{"mountPath":"/opt/jboss/keycloak/conf"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/opt/jboss/keycloak/data"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/opt/jboss/keycloak/data/import"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/opt/jboss/keycloak/lib/quarkus"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/opt/jboss/keycloak/providers"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/opt/jboss/keycloak/themes/ericsson-base-modified-theme/admin/resources/messages"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/opt/jboss/keycloak/themes/ericsson-base-modified-theme/login/resources/res"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/opt/jboss/rundir-safe"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/run/secrets/eric-sec-access-mgmt-certs"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/run/secrets/eric-sec-access-mgmt-ha-cluster-cert"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/run/secrets/eric-sec-access-mgmt-iam-client-ca"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/run/secrets/eric-sec-access-mgmt-iam-ha-clustering-client-ca"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/run/secrets/eric-sec-access-mgmt-iam-int-client-cert"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/run/secrets/eric-sec-access-mgmt-iam-internal-client-ca"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/run/secrets/eric-sec-access-mgmt-pg-client-certs"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/run/secrets/eric-sec-access-mgmt-probe-client-cert"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/run/secrets/eric-sec-sip-tls-trusted-root-cert"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/run/secrets/eric-tm-ingress-controller-cr-client-ca"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/run/secrets/kc-admin"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/run/secrets/ldap-ca-cert-ldap"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/scripts"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/tmp"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:hostname: {}
+          f:imagePullSecrets:
+            .: {}
+            k:{"name":"scmcred"}: {}
+          f:initContainers:
+            .: {}
+            k:{"name":"iam-init"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"CONTAINER_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DB_ADDR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DB_DATABASE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DB_PORT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DB_VENDOR"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROBE_CONTAINER_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROBE_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"HTTP_PROBE_POD_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:valueFrom:
+                    .: {}
+                    f:fieldRef: {}
+                k:{"name":"HTTP_PROBE_SERVICE_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IAM_NAMESPACE"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"IS_PG_OP_ENABLED"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"KC_DB_USERNAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"LOG_LEVEL"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"PG_SU_CERT_MOUNT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"RUNDIR_SAFE_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SERVICE_NAME"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"TRUSTED_CA_CERT_MOUNT_PATH"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"TZ"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources:
+                .: {}
+                f:limits:
+                  .: {}
+                  f:cpu: {}
+                  f:ephemeral-storage: {}
+                  f:memory: {}
+                f:requests:
+                  .: {}
+                  f:cpu: {}
+                  f:ephemeral-storage: {}
+                  f:memory: {}
+              f:securityContext:
+                .: {}
+                f:allowPrivilegeEscalation: {}
+                f:capabilities:
+                  .: {}
+                  f:drop: {}
+                f:privileged: {}
+                f:readOnlyRootFilesystem: {}
+                f:runAsNonRoot: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+              f:volumeMounts:
+                .: {}
+                k:{"mountPath":"/opt/iam/config"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/opt/iam/rundir-safe"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                k:{"mountPath":"/run/secrets/eric-sec-access-mgmt-pg-su-certs"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+                k:{"mountPath":"/run/secrets/eric-sec-sip-tls-trusted-root-cert"}:
+                  .: {}
+                  f:mountPath: {}
+                  f:name: {}
+                  f:readOnly: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext:
+            .: {}
+            f:fsGroup: {}
+          f:serviceAccount: {}
+          f:serviceAccountName: {}
+          f:subdomain: {}
+          f:terminationGracePeriodSeconds: {}
+          f:volumes:
+            .: {}
+            k:{"name":"auth-proxy-rundir-safe"}:
+              .: {}
+              f:emptyDir:
+                .: {}
+                f:medium: {}
+              f:name: {}
+            k:{"name":"egress-ldap-trusted-ca-certs"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:optional: {}
+                f:secretName: {}
+            k:{"name":"ha-certificates"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"iam-admin-user"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:optional: {}
+                f:secretName: {}
+            k:{"name":"iam-build"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+            k:{"name":"iam-client-ca-1"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"iam-configuration"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+            k:{"name":"iam-data-import"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+            k:{"name":"iam-int-client-cert"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"iam-internal-ca-certs"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"iam-legal-notice"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+            k:{"name":"iam-post-login-message"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+            k:{"name":"iam-probe-client-cert"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"iam-providers"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+            k:{"name":"iam-rundir-safe"}:
+              .: {}
+              f:emptyDir:
+                .: {}
+                f:medium: {}
+              f:name: {}
+            k:{"name":"iam-tempdir-safe"}:
+              .: {}
+              f:emptyDir:
+                .: {}
+                f:medium: {}
+                f:sizeLimit: {}
+              f:name: {}
+            k:{"name":"iccr-client-ca-cert"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:optional: {}
+                f:secretName: {}
+            k:{"name":"init-rundir-safe"}:
+              .: {}
+              f:emptyDir:
+                .: {}
+                f:medium: {}
+              f:name: {}
+            k:{"name":"int-trusted-ca"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"keycloak-server-certificates"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"keycloak-tmp"}:
+              .: {}
+              f:emptyDir: {}
+              f:name: {}
+            k:{"name":"pg-client-certificates"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"pg-su-certificates"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+            k:{"name":"scripts"}:
+              .: {}
+              f:configMap:
+                .: {}
+                f:defaultMode: {}
+                f:name: {}
+              f:name: {}
+            k:{"name":"trusted-ca"}:
+              .: {}
+              f:name: {}
+              f:secret:
+                .: {}
+                f:defaultMode: {}
+                f:secretName: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: '2025-07-10T14:05:56Z'
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:cni.projectcalico.org/containerID: {}
+            f:cni.projectcalico.org/podIP: {}
+            f:cni.projectcalico.org/podIPs: {}
+      manager: calico
+      operation: Update
+      subresource: status
+      time: '2025-07-10T14:05:57Z'
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"PodReadyToStartContainers"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:hostIPs: {}
+          f:initContainerStatuses: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.4.123"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: kubelet
+      operation: Update
+      subresource: status
+      time: '2025-07-10T14:06:42Z'
+  name: eric-sec-access-mgmt-0
+  namespace: ecm-eoc-pcs
+  ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: StatefulSet
+      name: eric-sec-access-mgmt
+      uid: 2dfb7430-a816-4216-9b51-86a828624a4d
+  resourceVersion: '82636367'
+  uid: 576b3690-bde2-45f9-b0ae-e3034d035926
+spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: antiAffinity
+                operator: In
+                values:
+                  - eric-sec-access-mgmt
+          topologyKey: kubernetes.io/hostname
+  containers:
+    - env:
+        - name: HEADLESS_SERVICE_NAME
+          value: eric-sec-access-mgmt-headless-v1
+        - name: LOG_LEVEL
+          value: info
+        - name: CUSTOM_SPI_PROVIDER_INJECTION_ENABLED
+          value: 'false'
+        - name: CUSTOM_SPI_PROVIDERS_PATH
+          value: /opt/jboss/keycloak/adp-custom-spi
+        - name: CUSTOM_SPI_PROVIDERS_CHECKSUMS_PATH
+          value: /spi-checksums
+        - name: DUMMY_ENV_TO_UPDATE_LEGAL_MESSAGE
+          value: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+        - name: IAM_SERVICE_NAME
+          value: eric-sec-access-mgmt-http
+        - name: SERVICE_NAME
+          value: eric-sec-access-mgmt
+        - name: TLS_ENABLED
+          value: 'true'
+        - name: RECORD_LOGIN_ENABLED
+          value: 'true'
+        - name: LAST_LOGIN_TIME_FLOW_ALIAS
+          value: lastlogintime
+        - name: ALLOWED_HOSTS
+          value: >-
+            eric-sec-access-mgmt-http,eric-sec-access-mgmt-http.ecm-eoc-pcs,eric-sec-access-mgmt-http.ecm-eoc-pcs.svc,eric-sec-access-mgmt-http.ecm-eoc-pcs.svc.cluster,eric-sec-access-mgmt-http.ecm-eoc-pcs.svc.cluster.local,ecm-eoc-pcs.msicint.iamdg.net.ma
+        - name: INTERNAL_HOSTS
+          value: >-
+            eric-sec-access-mgmt-http,eric-sec-access-mgmt-http.ecm-eoc-pcs,eric-sec-access-mgmt-http.ecm-eoc-pcs.svc,eric-sec-access-mgmt-http.ecm-eoc-pcs.svc.cluster,eric-sec-access-mgmt-http.ecm-eoc-pcs.svc.cluster.local
+        - name: NO_LOCK_ATTRIBUTE
+          value: no-lock
+        - name: IAM_NAMESPACE
+          value: ecm-eoc-pcs
+        - name: CONTAINER_NAME
+          value: iam
+        - name: IAM_INGRESS_ENABLED
+          value: 'false'
+        - name: IS_POST_LOGIN_PAGE_ENABLED
+          value: 'false'
+        - name: HTTP_PROBE_NAMESPACE
+          value: ecm-eoc-pcs
+        - name: HTTP_PROBE_CONTAINER_NAME
+          value: iam
+        - name: HTTP_PROBE_POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: HTTP_PROBE_SERVICE_NAME
+          value: eric-sec-access-mgmt
+        - name: KEYCLOAK_USER
+          valueFrom:
+            secretKeyRef:
+              key: kcadminid
+              name: eric-sec-access-mgmt-creds
+              optional: true
+        - name: KC_PWD_KEY
+          value: kcpasswd
+        - name: KC_USERNAME_KEY
+          value: kcadminid
+        - name: KC_ADM_CREDS_MNT_PATH
+          value: /run/secrets/kc-admin
+        - name: IAM_IPV6_ENABLED
+          value: 'true'
+        - name: POD_IPS
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIPs
+        - name: IAM_DOCKERV2_ENABLED
+          value: 'false'
+        - name: IAM_DECLARATIVE_USER_PROFILE_ENABLED
+          value: 'false'
+        - name: IAM_SCRIPT_ENABLED
+          value: 'false'
+        - name: SIP_OAUTH2_CLIENT_SECRET_PATH
+          value: /run/secrets/sip-oauth2-client-secret
+        - name: AUTH_PROXY_ENABLED
+          value: 'false'
+        - name: RUNDIR_SAFE_PATH
+          value: /opt/jboss/rundir-safe
+        - name: SIP_OAUTH2_ENABLED
+          value: DISABLED
+        - name: INITIAL_MEMORY_ALLOCATION
+          value: '60'
+        - name: SMALL_MEMORY_ALLOCATION_MAX
+          value: '70'
+        - name: LARGE_MEMORY_ALLOCATION_MAX
+          value: '60'
+        - name: HTTP_PROBE_CMD_DIR
+          value: /opt/jboss/bin
+        - name: HTTP_PROBE_PORT
+          value: '9001'
+        - name: TZ
+          value: UTC
+        - name: TRUSTED_CA_CERT_MOUNT_PATH
+          value: /run/secrets/eric-sec-sip-tls-trusted-root-cert
+        - name: SERVER_CERT_PATH
+          value: /run/secrets/eric-sec-access-mgmt-certs
+        - name: IAM_INT_CA_CERT_PATH
+          value: /run/secrets/eric-sec-access-mgmt-iam-internal-client-ca
+        - name: IAM_INT_PROBE_CLIENT_CERT_PATH
+          value: /run/secrets/eric-sec-access-mgmt-probe-client-cert
+        - name: IAM_INT_CLIENT_CERT_PATH
+          value: /run/secrets/eric-sec-access-mgmt-iam-int-client-cert
+        - name: HA_CERT_PATH
+          value: /run/secrets/eric-sec-access-mgmt-ha-cluster-cert
+        - name: HA_KEYSTORE_PATH
+          value: /opt/jboss/rundir-safe/ha.keystore
+        - name: HA_TRUSTSTORE_PATH
+          value: /opt/jboss/rundir-safe/ha.truststore
+        - name: HA_TRUSTED_CA_CERT_MOUNT_PATH
+          value: /run/secrets/eric-sec-access-mgmt-iam-ha-clustering-client-ca
+        - name: PG_CLIENT_CERT_MOUNT_PATH
+          value: /run/secrets/eric-sec-access-mgmt-pg-client-certs
+        - name: AH_CLIENT_CERT_MOUNT_PATH
+          value: /run/secrets/eric-sec-access-mgmt-ah-client-certs
+        - name: JDBC_PARAMS
+          value: >-
+            user=pguser&ssl=true&sslmode=verify-full&targetServerType=primary&connectTimeout=60
+        - name: IAM_CLIENT_CA_CERT_PATH_1
+          value: /run/secrets/eric-sec-access-mgmt-iam-client-ca
+        - name: ICCR_CLIENT_CA_CERT_PATH
+          value: /run/secrets/eric-tm-ingress-controller-cr-client-ca
+        - name: EGRESS_LDAP_TRUSTED_CA_CERT_MOUNT_PATH
+          value: /run/secrets/ldap-ca-cert-ldap
+        - name: DB_VENDOR
+          value: POSTGRES
+        - name: DB_ADDR
+          value: eric-idam-database-pg
+        - name: DB_PORT
+          value: '5432'
+        - name: DB_DATABASE
+          value: idam
+        - name: KC_DB_USERNAME
+          value: pguser
+        - name: KC_HOSTNAME_ADMIN_URL
+          value: https://ecm-eoc-pcs.msicint.iamdg.net.ma/auth
+        - name: KC_HOSTNAME_URL
+          value: https://ecm-eoc-pcs.msicint.iamdg.net.ma/auth
+      image: >-
+        registry.devtool.iamdg.net.ma/apps/eric-sec-access-mgmt-image:17.4.0-40-custom-dev-3
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /health/liveness
+          port: 9001
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 15
+      name: iam
+      ports:
+        - containerPort: 8443
+          name: https-metrics
+          protocol: TCP
+        - containerPort: 7600
+          name: jgroups-tcp
+          protocol: TCP
+        - containerPort: 57600
+          name: jgroups-tcp-fd
+          protocol: TCP
+      readinessProbe:
+        failureThreshold: 10
+        httpGet:
+          path: /health/readiness
+          port: 9001
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 2
+        timeoutSeconds: 15
+      resources:
+        limits:
+          cpu: '3'
+          ephemeral-storage: 4Gi
+          memory: 2Gi
+        requests:
+          cpu: 300m
+          ephemeral-storage: 2Gi
+          memory: 1500Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+      startupProbe:
+        failureThreshold: 25
+        httpGet:
+          path: /health/startup
+          port: 9001
+          scheme: HTTP
+        initialDelaySeconds: 30
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 15
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+        - mountPath: /opt/jboss/keycloak/data
+          name: keycloak-tmp
+        - mountPath: /opt/jboss/rundir-safe
+          name: iam-rundir-safe
+        - mountPath: /tmp
+          name: iam-tempdir-safe
+        - mountPath: /run/secrets/kc-admin
+          name: iam-admin-user
+        - mountPath: /opt/jboss/keycloak/conf
+          name: iam-configuration
+        - mountPath: /opt/jboss/keycloak/lib/quarkus
+          name: iam-build
+        - mountPath: /opt/jboss/keycloak/data/import
+          name: iam-data-import
+        - mountPath: /opt/jboss/keycloak/providers
+          name: iam-providers
+        - mountPath: >-
+            /opt/jboss/keycloak/themes/ericsson-base-modified-theme/admin/resources/messages
+          name: iam-post-login-message
+        - mountPath: >-
+            /opt/jboss/keycloak/themes/ericsson-base-modified-theme/login/resources/res
+          name: iam-legal-notice
+        - mountPath: /scripts
+          name: scripts
+        - mountPath: /run/secrets/eric-sec-sip-tls-trusted-root-cert
+          name: trusted-ca
+          readOnly: true
+        - mountPath: /run/secrets/eric-sec-access-mgmt-pg-client-certs
+          name: pg-client-certificates
+          readOnly: true
+        - mountPath: /run/secrets/eric-tm-ingress-controller-cr-client-ca
+          name: iccr-client-ca-cert
+          readOnly: true
+        - mountPath: /run/secrets/eric-sec-access-mgmt-iam-client-ca
+          name: iam-client-ca-1
+          readOnly: true
+        - mountPath: /run/secrets/eric-sec-access-mgmt-certs
+          name: keycloak-server-certificates
+        - mountPath: /run/secrets/eric-sec-access-mgmt-iam-internal-client-ca
+          name: iam-internal-ca-certs
+          readOnly: true
+        - mountPath: /run/secrets/eric-sec-access-mgmt-probe-client-cert
+          name: iam-probe-client-cert
+        - mountPath: /run/secrets/eric-sec-access-mgmt-iam-int-client-cert
+          name: iam-int-client-cert
+        - mountPath: /run/secrets/eric-sec-access-mgmt-ha-cluster-cert
+          name: ha-certificates
+        - mountPath: /run/secrets/eric-sec-access-mgmt-iam-ha-clustering-client-ca
+          name: int-trusted-ca
+        - mountPath: /run/secrets/ldap-ca-cert-ldap
+          name: egress-ldap-trusted-ca-certs
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kube-api-access-5qdxh
+          readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: false
+  hostname: eric-sec-access-mgmt-0
+  imagePullSecrets:
+    - name: scmcred
+  initContainers:
+    - env:
+        - name: LOG_LEVEL
+          value: info
+        - name: SERVICE_NAME
+          value: eric-sec-access-mgmt
+        - name: IAM_NAMESPACE
+          value: ecm-eoc-pcs
+        - name: CONTAINER_NAME
+          value: iam-init
+        - name: HTTP_PROBE_NAMESPACE
+          value: ecm-eoc-pcs
+        - name: HTTP_PROBE_CONTAINER_NAME
+          value: iam-init
+        - name: HTTP_PROBE_POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: HTTP_PROBE_SERVICE_NAME
+          value: eric-sec-access-mgmt
+        - name: RUNDIR_SAFE_PATH
+          value: /opt/iam/rundir-safe
+        - name: IS_PG_OP_ENABLED
+          value: 'false'
+        - name: TRUSTED_CA_CERT_MOUNT_PATH
+          value: /run/secrets/eric-sec-sip-tls-trusted-root-cert
+        - name: PG_SU_CERT_MOUNT_PATH
+          value: /run/secrets/eric-sec-access-mgmt-pg-su-certs
+        - name: DB_VENDOR
+          value: POSTGRES
+        - name: DB_ADDR
+          value: eric-idam-database-pg
+        - name: DB_PORT
+          value: '5432'
+        - name: DB_DATABASE
+          value: idam
+        - name: KC_DB_USERNAME
+          value: pguser
+        - name: TZ
+          value: UTC
+      image: >-
+        registry.devtool.iamdg.net.ma/apps/eric-sec-access-mgmt-initcontainer:22.4.0-40
+      imagePullPolicy: IfNotPresent
+      name: iam-init
+      resources:
+        limits:
+          cpu: '3'
+          ephemeral-storage: 2Gi
+          memory: 2036Mi
+        requests:
+          cpu: 300m
+          ephemeral-storage: 1Gi
+          memory: 512Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        privileged: false
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+        - mountPath: /opt/iam/rundir-safe
+          name: init-rundir-safe
+        - mountPath: /opt/iam/config
+          name: scripts
+        - mountPath: /run/secrets/eric-sec-sip-tls-trusted-root-cert
+          name: trusted-ca
+          readOnly: true
+        - mountPath: /run/secrets/eric-sec-access-mgmt-pg-su-certs
+          name: pg-su-certificates
+          readOnly: true
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kube-api-access-5qdxh
+          readOnly: true
+  nodeName: int-prime-k8s-worker-1
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 10000
+  serviceAccount: eric-sec-access-mgmt-sa
+  serviceAccountName: eric-sec-access-mgmt-sa
+  subdomain: eric-sec-access-mgmt-headless
+  terminationGracePeriodSeconds: 30
+  tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+  volumes:
+    - emptyDir: {}
+      name: keycloak-tmp
+    - emptyDir:
+        medium: Memory
+      name: init-rundir-safe
+    - emptyDir:
+        medium: Memory
+      name: iam-rundir-safe
+    - emptyDir:
+        medium: Memory
+        sizeLimit: 15Mi
+      name: iam-tempdir-safe
+    - name: iam-admin-user
+      secret:
+        defaultMode: 420
+        optional: true
+        secretName: eric-sec-access-mgmt-creds
+    - emptyDir: {}
+      name: iam-configuration
+    - emptyDir: {}
+      name: iam-build
+    - emptyDir: {}
+      name: iam-data-import
+    - emptyDir: {}
+      name: iam-providers
+    - emptyDir: {}
+      name: iam-post-login-message
+    - emptyDir: {}
+      name: iam-legal-notice
+    - emptyDir:
+        medium: Memory
+      name: auth-proxy-rundir-safe
+    - name: pg-client-certificates
+      secret:
+        defaultMode: 420
+        secretName: eric-sec-access-mgmt-pg-client-certs
+    - name: pg-su-certificates
+      secret:
+        defaultMode: 420
+        secretName: eric-sec-access-mgmt-pg-su-certs
+    - name: iccr-client-ca-cert
+      secret:
+        defaultMode: 420
+        optional: true
+        secretName: eric-tm-ingress-controller-cr-client-ca
+    - name: iam-client-ca-1
+      secret:
+        defaultMode: 420
+        secretName: eric-sec-access-mgmt-iam-client-ca
+    - name: keycloak-server-certificates
+      secret:
+        defaultMode: 420
+        secretName: eric-sec-access-mgmt-certs
+    - name: iam-internal-ca-certs
+      secret:
+        defaultMode: 420
+        secretName: eric-sec-access-mgmt-iam-internal-client-ca
+    - name: iam-probe-client-cert
+      secret:
+        defaultMode: 420
+        secretName: eric-sec-access-mgmt-probe-client-cert
+    - name: iam-int-client-cert
+      secret:
+        defaultMode: 420
+        secretName: eric-sec-access-mgmt-iam-int-client-cert
+    - name: trusted-ca
+      secret:
+        defaultMode: 420
+        secretName: eric-sec-sip-tls-trusted-root-cert
+    - name: ha-certificates
+      secret:
+        defaultMode: 420
+        secretName: eric-sec-access-mgmt-ha-cluster-cert
+    - name: int-trusted-ca
+      secret:
+        defaultMode: 420
+        secretName: eric-sec-access-mgmt-iam-ha-clustering-client-ca
+    - name: egress-ldap-trusted-ca-certs
+      secret:
+        defaultMode: 420
+        optional: true
+        secretName: ldap-ca-cert
+    - configMap:
+        defaultMode: 420
+        name: eric-sec-access-mgmt
+      name: scripts
+    - name: kube-api-access-5qdxh
+      projected:
+        defaultMode: 420
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              items:
+                - key: ca.crt
+                  path: ca.crt
+              name: kube-root-ca.crt
+          - downwardAPI:
+              items:
+                - fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+                  path: namespace
+status:
+  conditions:
+    - lastProbeTime: null
+      lastTransitionTime: '2025-07-10T14:05:58Z'
+      status: 'True'
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: '2025-07-10T14:05:58Z'
+      status: 'True'
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: '2025-07-10T14:06:42Z'
+      status: 'True'
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: '2025-07-10T14:06:42Z'
+      status: 'True'
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: '2025-07-10T14:05:56Z'
+      status: 'True'
+      type: PodScheduled
+  containerStatuses:
+    - containerID: >-
+        containerd://4d683d7c60b28d5448c734b1ee4c26386ae2e12a24f3806ff0d80eeb536da47a
+      image: registry.devtool.iamdg.net.ma/apps/eric-sec-access-mgmt-image:22.4.0-40
+      imageID: >-
+        registry.devtool.iamdg.net.ma/apps/eric-sec-access-mgmt-image@sha256:494c852a0db342362d035ef734e0cab464ed4a1e85ed54e0e1b84f34c8f86708
+      lastState: {}
+      name: iam
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: '2025-07-10T14:05:58Z'
+      volumeMounts:
+        - mountPath: /opt/jboss/keycloak/data
+          name: keycloak-tmp
+        - mountPath: /opt/jboss/rundir-safe
+          name: iam-rundir-safe
+        - mountPath: /tmp
+          name: iam-tempdir-safe
+        - mountPath: /run/secrets/kc-admin
+          name: iam-admin-user
+        - mountPath: /opt/jboss/keycloak/conf
+          name: iam-configuration
+        - mountPath: /opt/jboss/keycloak/lib/quarkus
+          name: iam-build
+        - mountPath: /opt/jboss/keycloak/data/import
+          name: iam-data-import
+        - mountPath: /opt/jboss/keycloak/providers
+          name: iam-providers
+        - mountPath: >-
+            /opt/jboss/keycloak/themes/ericsson-base-modified-theme/admin/resources/messages
+          name: iam-post-login-message
+        - mountPath: >-
+            /opt/jboss/keycloak/themes/ericsson-base-modified-theme/login/resources/res
+          name: iam-legal-notice
+        - mountPath: /scripts
+          name: scripts
+        - mountPath: /run/secrets/eric-sec-sip-tls-trusted-root-cert
+          name: trusted-ca
+          readOnly: true
+          recursiveReadOnly: Disabled
+        - mountPath: /run/secrets/eric-sec-access-mgmt-pg-client-certs
+          name: pg-client-certificates
+          readOnly: true
+          recursiveReadOnly: Disabled
+        - mountPath: /run/secrets/eric-tm-ingress-controller-cr-client-ca
+          name: iccr-client-ca-cert
+          readOnly: true
+          recursiveReadOnly: Disabled
+        - mountPath: /run/secrets/eric-sec-access-mgmt-iam-client-ca
+          name: iam-client-ca-1
+          readOnly: true
+          recursiveReadOnly: Disabled
+        - mountPath: /run/secrets/eric-sec-access-mgmt-certs
+          name: keycloak-server-certificates
+        - mountPath: /run/secrets/eric-sec-access-mgmt-iam-internal-client-ca
+          name: iam-internal-ca-certs
+          readOnly: true
+          recursiveReadOnly: Disabled
+        - mountPath: /run/secrets/eric-sec-access-mgmt-probe-client-cert
+          name: iam-probe-client-cert
+        - mountPath: /run/secrets/eric-sec-access-mgmt-iam-int-client-cert
+          name: iam-int-client-cert
+        - mountPath: /run/secrets/eric-sec-access-mgmt-ha-cluster-cert
+          name: ha-certificates
+        - mountPath: /run/secrets/eric-sec-access-mgmt-iam-ha-clustering-client-ca
+          name: int-trusted-ca
+        - mountPath: /run/secrets/ldap-ca-cert-ldap
+          name: egress-ldap-trusted-ca-certs
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kube-api-access-5qdxh
+          readOnly: true
+          recursiveReadOnly: Disabled
+  hostIP: 172.17.47.133
+  hostIPs:
+    - ip: 172.17.47.133
+  initContainerStatuses:
+    - containerID: >-
+        containerd://c40de752f43b3c8e4bc71f365d4e6cb02db96ab0ed21488a914aae0967e9bd01
+      image: >-
+        registry.devtool.iamdg.net.ma/apps/eric-sec-access-mgmt-initcontainer:22.4.0-40
+      imageID: >-
+        registry.devtool.iamdg.net.ma/apps/eric-sec-access-mgmt-initcontainer@sha256:7d97a199ba148863e8fb9253392ba8b00e502cc7893bd19dc5f9101f52f62f4e
+      lastState: {}
+      name: iam-init
+      ready: true
+      restartCount: 0
+      started: false
+      state:
+        terminated:
+          containerID: >-
+            containerd://c40de752f43b3c8e4bc71f365d4e6cb02db96ab0ed21488a914aae0967e9bd01
+          exitCode: 0
+          finishedAt: '2025-07-10T14:05:58Z'
+          reason: Completed
+          startedAt: '2025-07-10T14:05:57Z'
+      volumeMounts:
+        - mountPath: /opt/iam/rundir-safe
+          name: init-rundir-safe
+        - mountPath: /opt/iam/config
+          name: scripts
+        - mountPath: /run/secrets/eric-sec-sip-tls-trusted-root-cert
+          name: trusted-ca
+          readOnly: true
+          recursiveReadOnly: Disabled
+        - mountPath: /run/secrets/eric-sec-access-mgmt-pg-su-certs
+          name: pg-su-certificates
+          readOnly: true
+          recursiveReadOnly: Disabled
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kube-api-access-5qdxh
+          readOnly: true
+          recursiveReadOnly: Disabled
+  phase: Running
+  podIP: 10.42.4.123
+  podIPs:
+    - ip: 10.42.4.123
+  qosClass: Burstable
+  startTime: '2025-07-10T14:05:56Z'

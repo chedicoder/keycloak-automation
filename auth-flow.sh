@@ -96,7 +96,7 @@ curl -s -k -X POST "$KEYCLOAK_URL/auth/admin/realms/$REALM/authentication/execut
   -d '{
     "alias": "Custom MSIC Authenticator",
     "config": {
-      "appLdapName": "PingDS"
+      "app-ldap-name": "PingDS"
     }
 }'
 
