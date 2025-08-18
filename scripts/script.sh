@@ -10,6 +10,6 @@ set +H
 ./creating-mappers-of-client-scopes.sh
 ./creating-clients.sh
 ./adding-client-scope-to-client.sh 
-./adding-client-scopes-in-client-dedicated-scopes.sh             
-                        
+./adding-client-mappers-in-client-dedicated-mappers.sh             
+./change-keycloak-theme.sh
 
