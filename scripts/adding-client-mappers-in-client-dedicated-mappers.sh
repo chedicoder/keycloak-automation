@@ -27,7 +27,7 @@ if [[ ! -f "$MAPPERS_FILE" ]]; then
   exit 1
 fi
 
-jq -c '.[]' "$MAPPERS_FILE" | while read mapper; do
+jq -c '.[]' "$MAPPERS_FILE" | while read -r mapper; do
   NAME=$(echo "$mapper" | jq -r '.name')
   PROTOCOL=$(echo "$mapper" | jq -r '.protocol')
   PROTOCOL_MAPPER=$(echo "$mapper" | jq -r '.protocolMapper')
@@ -38,8 +38,8 @@ jq -c '.[]' "$MAPPERS_FILE" | while read mapper; do
 
   for CLIENT in $CLIENTS; do
     CLIENT=$(echo "$CLIENT" | tr -d '"')
-    echo "➡️ Adding mapper '$NAME' to client '$CLIENT'"
 
+    # 4️⃣ Get client ID
     CLIENT_ID=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
       "$KEYCLOAK_URL/admin/realms/$REALM/clients?clientId=$CLIENT" | jq -r '.[0].id')
 
@@ -48,18 +48,9 @@ jq -c '.[]' "$MAPPERS_FILE" | while read mapper; do
       continue
     fi
 
-    # Récupérer l'ID du dedicated client scope (portée par défaut attachée au client)
-    SCOPE_ID=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
-      "$KEYCLOAK_URL/admin/realms/$REALM/clients/$CLIENT_ID" | jq -r '.clientScopes | .["dedicated"]?.id')
-
-    if [[ -z "$SCOPE_ID" || "$SCOPE_ID" == "null" ]]; then
-      echo "⚠️ Dedicated client scope not found for $CLIENT"
-      continue
-    fi
-
-    # Vérifier si le mapper existe déjà
+    # 5️⃣ Check if mapper exists
     EXISTS=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
-      "$KEYCLOAK_URL/admin/realms/$REALM/client-scopes/$SCOPE_ID/protocol-mappers/models" \
+      "$KEYCLOAK_URL/admin/realms/$REALM/clients/$CLIENT_ID/protocol-mappers/models" \
       | jq -r --arg NAME "$NAME" '.[] | select(.name==$NAME) | .id')
 
     if [[ -n "$EXISTS" ]]; then
@@ -67,8 +58,8 @@ jq -c '.[]' "$MAPPERS_FILE" | while read mapper; do
       continue
     fi
 
-    # Créer le mapper
-    curl -s -X POST "$KEYCLOAK_URL/admin/realms/$REALM/client-scopes/$SCOPE_ID/protocol-mappers/models" \
+    # 6️⃣ Create mapper
+    curl -s -X POST "$KEYCLOAK_URL/admin/realms/$REALM/clients/$CLIENT_ID/protocol-mappers/models" \
       -H "Authorization: Bearer $ADMIN_TOKEN" \
       -H "Content-Type: application/json" \
       -d "{
