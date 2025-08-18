@@ -40,7 +40,7 @@ jq -c '.[]' "$MAPPERS_FILE" | while read -r mapper; do
     CLIENT=$(echo "$CLIENT" | tr -d '"')
 
     # 4️⃣ Get client ID
-    CLIENT_ID=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
+    CLIENT_ID=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
       "$KEYCLOAK_URL/admin/realms/$REALM/clients?clientId=$CLIENT" | jq -r '.[0].id')
 
     if [[ -z "$CLIENT_ID" || "$CLIENT_ID" == "null" ]]; then
@@ -49,7 +49,7 @@ jq -c '.[]' "$MAPPERS_FILE" | while read -r mapper; do
     fi
 
     # 5️⃣ Check if mapper exists
-    EXISTS=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
+    EXISTS=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
       "$KEYCLOAK_URL/admin/realms/$REALM/clients/$CLIENT_ID/protocol-mappers/models" \
       | jq -r --arg NAME "$NAME" '.[] | select(.name==$NAME) | .id')
 
@@ -59,7 +59,7 @@ jq -c '.[]' "$MAPPERS_FILE" | while read -r mapper; do
     fi
 
     # 6️⃣ Create mapper
-    curl -s -X POST "$KEYCLOAK_URL/admin/realms/$REALM/clients/$CLIENT_ID/protocol-mappers/models" \
+    curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/clients/$CLIENT_ID/protocol-mappers/models" \
       -H "Authorization: Bearer $ADMIN_TOKEN" \
       -H "Content-Type: application/json" \
       -d "{

@@ -28,11 +28,10 @@ if [[ ! -f "$MAPPER_FILE" ]]; then
   exit 1
 fi
 
-# PINGDS_ID=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
-#   "$KEYCLOAK_URL/admin/realms/$REALM/components?parent=$REALM&type=org.keycloak.storage.UserStorageProvider" \
-#   | jq -r --arg name "$PingDS_name" '.[] | select(.name == $name) | .id')
+PINGDS_ID=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
+  "$KEYCLOAK_URL/admin/realms/$REALM/components?parent=$REALM&type=org.keycloak.storage.UserStorageProvider" \
+  | jq -r --arg name "$PingDS_name" '.[] | select(.name == $name) | .id')
 
-PINGDS_ID="tLJzxN5AQRKS05385MrXqA"
 
 EXISTING_MAPPERS_JSON=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
   "$KEYCLOAK_URL/admin/realms/$REALM/components?parent=$PINGDS_ID&type=org.keycloak.storage.ldap.mappers.LDAPStorageMapper")

@@ -32,7 +32,7 @@ jq -c '.[]' "$User_Role_FILE" | while read entry; do
   USERS=$(echo "$entry" | jq -r '.users[]')
 
   # Récupérer l'ID du rôle
-  ROLE_ID=$(curl -s -X GET "$KEYCLOAK_URL/admin/realms/$REALM/roles/$ROLE_NAME" \
+  ROLE_ID=$(curl -s -k -X GET "$KEYCLOAK_URL/admin/realms/$REALM/roles/$ROLE_NAME" \
     -H "Authorization: Bearer $ADMIN_TOKEN" \
     -H "Content-Type: application/json")
 
@@ -49,7 +49,7 @@ jq -c '.[]' "$User_Role_FILE" | while read entry; do
   # Assigner le rôle à chaque user
   for user in $USERS; do
     # Récupérer l'ID de l'utilisateur
-    USER_ID=$(curl -s -X GET "$KEYCLOAK_URL/admin/realms/$REALM/users?username=$user" \
+    USER_ID=$(curl -s -k -X GET "$KEYCLOAK_URL/admin/realms/$REALM/users?username=$user" \
       -H "Authorization: Bearer $ADMIN_TOKEN" \
       -H "Content-Type: application/json" | jq -r '.[0].id')
 
@@ -59,7 +59,7 @@ jq -c '.[]' "$User_Role_FILE" | while read entry; do
     fi
 
     # Assigner le rôle
-    curl -s -X POST "$KEYCLOAK_URL/admin/realms/$REALM/users/$USER_ID/role-mappings/realm" \
+    curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/users/$USER_ID/role-mappings/realm" \
       -H "Authorization: Bearer $ADMIN_TOKEN" \
       -H "Content-Type: application/json" \
       -d "[$ROLE_PAYLOAD]"

@@ -28,13 +28,13 @@ fi
 echo "Adding client scope '$SCOPE_NAME' to client '$CLIENT_NAME'..."
 
 # Getting client ID
-CLIENT_ID=$(curl -s -X GET \
+CLIENT_ID=$(curl -s -k -X GET \
   "$KEYCLOAK_URL/admin/realms/$REALM/clients?clientId=$CLIENT_NAME" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   | jq -r '.[0].id')
 
 # Getting  client scope id
-SCOPE_ID=$(curl -s -X GET \
+SCOPE_ID=$(curl -s -k -X GET \
   "$KEYCLOAK_URL/admin/realms/$REALM/client-scopes" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   | jq -r ".[] | select(.name==\"$SCOPE_NAME\") | .id")
@@ -46,7 +46,7 @@ else
 fi
 
 # Add client scope to client
-curl -s -X PUT \
+curl -s -X -k PUT \
   "$KEYCLOAK_URL/admin/realms/$REALM/clients/$CLIENT_ID/$ENDPOINT/$SCOPE_ID" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json"
