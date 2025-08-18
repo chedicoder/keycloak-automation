@@ -1,13 +1,13 @@
 #!/bin/bash
 set +H  
 
-KEYCLOAK_URL="https://app.msictst.iamdg.net.ma/auth"
-REALM="dxp"
-ADMIN_USER="admin"
-ADMIN_PASS="Password!123"
+KEYCLOAK_URL="http://localhost:8080"
+REALM="test"
+ADMIN_USER="chedi"
+ADMIN_PASS="123456789"
 CLIENT_ID="admin-cli"
 MAPPER_FILE="../PingDS-mappers.json"
-PingDS_name="LDAP_MT"
+PingDS_name="PingDS"
 
 # Getting admin token
 echo "Getting admin token..."
@@ -31,7 +31,6 @@ fi
 PINGDS_ID=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
   "$KEYCLOAK_URL/admin/realms/$REALM/components?parent=$REALM&type=org.keycloak.storage.UserStorageProvider" \
   | jq -r --arg name "$PingDS_name" '.[] | select(.name == $name) | .id')
-
 
 EXISTING_MAPPERS_JSON=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
   "$KEYCLOAK_URL/admin/realms/$REALM/components?parent=$PINGDS_ID&type=org.keycloak.storage.ldap.mappers.LDAPStorageMapper")

@@ -1,7 +1,6 @@
 #!/bin/bash
 set +H  
 
-
 KEYCLOAK_URL="http://localhost:8080"
 REALM="test"
 ADMIN_USER="chedi"
@@ -22,11 +21,8 @@ if [[ -z "$ADMIN_TOKEN" || "$ADMIN_TOKEN" == "null" ]]; then
   exit 1
 fi
 
-curl -s -X -k PUT "$KEYCLOAK_URL/admin/realms/$REALM" \
-  -H "Authorization: Bearer $ADMIN_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "loginTheme": "keycloak"
-  }'
+# Supprimer le realm
+curl -s -X DELETE "$KEYCLOAK_URL/admin/realms/$REALM" \
+  -H "Authorization: Bearer $ADMIN_TOKEN"
 
-echo "✔️ Theme updated for realm $REALM"
+echo "✔️ Realm '$REALM' deleted."

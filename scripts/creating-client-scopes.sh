@@ -1,10 +1,10 @@
 #!/bin/bash
 set +H  
 
-KEYCLOAK_URL="https://app.msictst.iamdg.net.ma/auth"
-REALM="dxp"
-ADMIN_USER="admin"
-ADMIN_PASS="Password!123"
+KEYCLOAK_URL="http://localhost:8080"
+REALM="test"
+ADMIN_USER="chedi"
+ADMIN_PASS="123456789"
 CLIENT_ID="admin-cli"
 CLIENT_SCOPES_FILE="../client-scopes.json"
 
