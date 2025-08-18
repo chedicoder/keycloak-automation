@@ -1,25 +1,15 @@
 #!/bin/bash
 set +H  
 
-KEYCLOAK_URL="https://app.msictst.iamdg.net.ma/auth"
-export ECM_EOC_PCS_ENV_URL="ecm-eoc-pcs.msicint.iamdg.net.ma"
-export APP_ENV_URL="app.msicint.iamdg.net.ma"
+KEYCLOAK_URL="http://localhost:8080"
 
-# Get the Pingds bindcredential from secret dirmanager.pw in secrets of pingds ns
-export PING_DS_BIND_CREDENTIAL="7xZrAR1ITrpLvOSWlM8CeS5JmqCjSL4c"
-export LDAP_MT_BIND_CREDENTIAL="sso$modernSic*25"
-
-REALM="dxp"
-ADMIN_USER="admin"
-ADMIN_PASS="Password!123"
+REALM="test"
+ADMIN_USER="chedi"
+ADMIN_PASS="123456789"
 CLIENT_ID="admin-cli"
-MAPPER_FILE1="PingDS-mappers.json"
-MAPPER_FILE2="LDAP-MT-mappers.json"
-PingDS_name="PingDS1"
-LDAP_name="LDAP_MT1"
-USERS_FILE="users.json"
-CLIENTS_FILE="clients.json"
-
+SCOPE_NAME="test1"
+CLIENT_NAME="test"
+SCOPE_TYPE= "default" # or "optional"
 
 # Getting admin token
 echo "Getting admin token..."
@@ -37,16 +27,17 @@ fi
 
 # Adding client scope to client
 echo "Adding client scope '$SCOPE_NAME' to client '$CLIENT_NAME'..."
-# ID client
+
+# Getting client ID
 CLIENT_ID=$(curl -s -X GET \
   "$KEYCLOAK_URL/admin/realms/$REALM/clients?clientId=$CLIENT_NAME" \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
   | jq -r '.[0].id')
 
-# ID scope
+# Getting  client scope id
 SCOPE_ID=$(curl -s -X GET \
   "$KEYCLOAK_URL/admin/realms/$REALM/client-scopes" \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
   | jq -r ".[] | select(.name==\"$SCOPE_NAME\") | .id")
 
 if [[ "$SCOPE_TYPE" == "default" ]]; then
@@ -55,10 +46,10 @@ else
   ENDPOINT="optional-client-scopes"
 fi
 
-# Ajouter le scope au client
+# Add client scope to client
 curl -s -X PUT \
   "$KEYCLOAK_URL/admin/realms/$REALM/clients/$CLIENT_ID/$ENDPOINT/$SCOPE_ID" \
-  -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json"
 
-echo "✅ Client scope '$SCOPE_NAME' ajouté en $SCOPE_TYPE au client '$CLIENT_NAME'"
+echo "✅ Client scope '$SCOPE_NAME' added as $SCOPE_TYPE to client '$CLIENT_NAME'"
