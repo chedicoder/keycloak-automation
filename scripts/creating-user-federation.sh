@@ -1,15 +1,15 @@
 #!/bin/bash
 set +H  
 
-KEYCLOAK_URL="http://localhost:8080"
+KEYCLOAK_URL="https://app.msictst.iamdg.net.ma/auth"
 
 # Get the Pingds bindcredential from secret dirmanager.pw in secrets of pingds ns
 export PING_DS_BIND_CREDENTIAL="7xZrAR1ITrpLvOSWlM8CeS5JmqCjSL4c"
 export LDAP_MT_BIND_CREDENTIAL="sso$modernSic*25"
 
-REALM="test"
-ADMIN_USER="chedi"
-ADMIN_PASS="123456789"
+REALM="dxp"
+ADMIN_USER="admin"
+ADMIN_PASS="Password!123"
 CLIENT_ID="admin-cli"
 PingDS_name="PingDS"
 LDAP_name="LDAP_MT"

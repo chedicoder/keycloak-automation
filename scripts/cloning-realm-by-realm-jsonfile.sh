@@ -7,7 +7,6 @@ KEYCLOAK_URL="https://app.msictst.iamdg.net.ma/auth"
 export ECM_EOC_PCS_ENV_URL="ecm-eoc-pcs.msicint.iamdg.net.ma"
 export APP_ENV_URL="app.msicint.iamdg.net.ma"
 
-
 REALM="dxp"
 ADMIN_USER="admin"
 ADMIN_PASS="Password!123"

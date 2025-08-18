@@ -6,9 +6,8 @@ REALM="dxp"
 ADMIN_USER="admin"
 ADMIN_PASS="Password!123"
 CLIENT_ID="admin-cli"
-USERS_FILE="users.json"
+USERS_FILE="../users.json"
 
-# Obtenir le token admin
 echo "Getting admin token..."
 ADMIN_TOKEN=$(curl -s -k -X POST "$KEYCLOAK_URL/realms/master/protocol/openid-connect/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \

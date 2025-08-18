@@ -6,7 +6,7 @@ REALM="dxp"
 ADMIN_USER="admin"
 ADMIN_PASS="Password!123"
 CLIENT_ID="admin-cli"
-MAPPERS_FILE="client_scopes_mappers.json"
+MAPPERS_FILE="../client_scopes_mappers.json"
 
 # Getting admin token
 echo "Getting admin token..."

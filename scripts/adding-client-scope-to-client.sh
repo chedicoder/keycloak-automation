@@ -2,8 +2,6 @@
 set +H  
 
 KEYCLOAK_URL="https://app.msictst.iamdg.net.ma/auth"
-
-
 REALM="dxp"
 ADMIN_USER="admin"
 ADMIN_PASS="Password!123"
