@@ -1,0 +1,15 @@
+#!/bin/bash
+set +H
+./cloning-realm-by-realm-jsonfile.sh
+./creating-user-federation.sh
+./adding-mappers-to-user-federations.sh
+./creating-users.sh
+./creating-roles.sh
+./assigning-roles-to-users.sh
+./creating-client_scopes.sh
+./creating-mappers-of-client-scopes.sh
+./creating-clients.sh
+./adding-client-scope-to-client.sh 
+./adding-client-scopes-in-client-dedicated-scopes.sh             
+                        
+

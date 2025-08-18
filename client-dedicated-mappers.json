@@ -1,0 +1,18 @@
+[
+    {
+    "protocol": "openid-connect",
+    "protocolMapper": "oidc-usermodel-attribute-mapper",
+    "name": "map1",
+    "config": {
+        "claim.name": "jnjnjn",
+        "user.attribute": "email",
+        "jsonType.label": "String",
+        "id.token.claim": "true",
+        "access.token.claim": "true",
+        "lightweight.claim": "false",
+        "userinfo.token.claim": "true",
+        "introspection.token.claim": "true"   
+       },
+    "clients": ["test"]   
+    }
+]
