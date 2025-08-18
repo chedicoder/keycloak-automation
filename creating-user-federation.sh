@@ -1,7 +1,7 @@
 #!/bin/bash
 set +H  
 
-KEYCLOAK_URL="https://app.msictst.iamdg.net.ma/auth"
+KEYCLOAK_URL="http://localhost:8080"
 
 # Get the Pingds bindcredential from secret dirmanager.pw in secrets of pingds ns
 export PING_DS_BIND_CREDENTIAL="7xZrAR1ITrpLvOSWlM8CeS5JmqCjSL4c"
@@ -267,6 +267,7 @@ curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/components" \
 PINGDS_ID=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
   "$KEYCLOAK_URL/admin/realms/$REALM/components?parent=$REALM&type=org.keycloak.storage.UserStorageProvider" \
   | jq -r --arg name "$PingDS_name" '.[] | select(.name == $name) | .id')
+
 if [[ -z "$PINGDS_ID" ]]; then
   echo "Failed to create PingDS provider."
   exit 1
