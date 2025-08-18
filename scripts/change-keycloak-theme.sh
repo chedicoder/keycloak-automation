@@ -22,7 +22,7 @@ if [[ -z "$ADMIN_TOKEN" || "$ADMIN_TOKEN" == "null" ]]; then
   exit 1
 fi
 
-curl -s -X -k PUT "$KEYCLOAK_URL/admin/realms/$REALM" \
+curl -s -k -X PUT "$KEYCLOAK_URL/admin/realms/$REALM" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{

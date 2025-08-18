@@ -13,6 +13,6 @@
         "userinfo.token.claim": "true",
         "introspection.token.claim": "true"   
        },
-    "clients": ["test"]   
+    "clients": ["cpq-ui"]   
     }
 ]

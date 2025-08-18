@@ -8,7 +8,7 @@ ADMIN_PASS="123456789"
 CLIENT_ID="admin-cli"
 SCOPE_NAME="test1"
 CLIENT_NAME="cpq-ui"
-SCOPE_TYPE= "default" # or "optional"
+SCOPE_TYPE="default" # or "optional"
 
 # Getting admin token
 echo "Getting admin token..."
@@ -32,13 +32,14 @@ CLIENT_ID=$(curl -s -k -X GET \
   "$KEYCLOAK_URL/admin/realms/$REALM/clients?clientId=$CLIENT_NAME" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   | jq -r '.[0].id')
-
+echo "Client ID: $CLIENT_ID"
 # Getting  client scope id
 SCOPE_ID=$(curl -s -k -X GET \
   "$KEYCLOAK_URL/admin/realms/$REALM/client-scopes" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   | jq -r ".[] | select(.name==\"$SCOPE_NAME\") | .id")
 
+echo "Client Scope ID: $SCOPE_ID"
 if [[ "$SCOPE_TYPE" == "default" ]]; then
   ENDPOINT="default-client-scopes"
 else
@@ -46,7 +47,7 @@ else
 fi
 
 # Add client scope to client
-curl -s -X -k PUT \
+curl -s -k -X PUT \
   "$KEYCLOAK_URL/admin/realms/$REALM/clients/$CLIENT_ID/$ENDPOINT/$SCOPE_ID" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json"
