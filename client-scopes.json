@@ -1,0 +1,26 @@
+[
+  {
+    "name": "test1",
+    "description": "ghghghghg",
+    "type": "default",
+    "protocol": "openid-connect",
+    "attributes": {
+      "display.on.consent.screen": "true",
+      "consent.screen.text": "xsdfsdfsf",
+      "include.in.token.scope": "false",
+      "gui.order": "3"
+    }
+  },
+  {
+    "name": "test2",
+    "description": "ghghghghg",
+    "type": "default",
+    "protocol": "openid-connect",
+    "attributes": {
+      "display.on.consent.screen": "true",
+      "consent.screen.text": "xsdfsdfsf",
+      "include.in.token.scope": "false",
+      "gui.order": "3"
+    }
+  }
+]

@@ -56,20 +56,6 @@
     }
   },
   {
-    "name": "Username",
-    "providerId": "user-attribute-ldap-mapper",
-    "config": {
-      "user.model.attribute": ["username"],
-      "ldap.attribute": ["uid"],
-      "read.only": ["false"],
-      "always.read.value.from.ldap": ["false"],
-      "is.mandatory.in.ldap": ["true"],
-      "attribute.default.value": [""],
-      "force.default.value": ["true"],
-      "is.binary.attribute": ["false"]
-    }
-  },
-  {
   "name": "Group",
   "providerId": "group-ldap-mapper",
   "config": {
@@ -90,34 +76,6 @@
   }
 },
   {
-    "name": "modify Date",
-    "providerId": "user-attribute-ldap-mapper",
-    "config": {
-      "user.model.attribute": ["modifyTimestamp"],
-      "ldap.attribute": ["modifyTimestamp"],
-      "read.only": ["true"],
-      "always.read.value.from.ldap": ["true"],
-      "is.mandatory.in.ldap": ["false"],
-      "attribute.default.value": [""],
-      "force.default.value": ["true"],
-      "is.binary.attribute": ["false"]
-    }
-  },
-  {
-    "name": "first Name",
-    "providerId": "user-attribute-ldap-mapper",
-    "config": {
-      "user.model.attribute": ["firstName"],
-      "ldap.attribute": ["cn"],
-      "read.only": ["false"],
-      "always.read.value.from.ldap": ["true"],
-      "is.mandatory.in.ldap": ["true"],
-      "attribute.default.value": [""],
-      "force.default.value": ["true"],
-      "is.binary.attribute": ["false"]
-    }
-  },
-  {
     "name": "Interim-ad-username",
     "providerId": "user-attribute-ldap-mapper",
     "config": {
@@ -128,48 +86,6 @@
       "is.mandatory.in.ldap": ["false"],
       "attribute.default.value": [""],
       "force.default.value": ["false"],
-      "is.binary.attribute": ["false"]
-    }
-  },
-  {
-    "name": "email",
-    "providerId": "user-attribute-ldap-mapper",
-    "config": {
-      "user.model.attribute": ["email"],
-      "ldap.attribute": ["mail"],
-      "read.only": ["false"],
-      "always.read.value.from.ldap": ["false"],
-      "is.mandatory.in.ldap": ["false"],
-      "attribute.default.value": [""],
-      "force.default.value": ["true"],
-      "is.binary.attribute": ["false"]
-    }
-  },
-  {
-    "name": "creation Date",
-    "providerId": "user-attribute-ldap-mapper",
-    "config": {
-      "user.model.attribute": ["createTimestamp"],
-      "ldap.attribute": ["createTimestamp"],
-      "read.only": ["true"],
-      "always.read.value.from.ldap": ["true"],
-      "is.mandatory.in.ldap": ["false"],
-      "attribute.default.value": [""],
-      "force.default.value": ["true"],
-      "is.binary.attribute": ["false"]
-    }
-  },
-  {
-    "name": "last Name",
-    "providerId": "user-attribute-ldap-mapper",
-    "config": {
-      "user.model.attribute": ["lastName"],
-      "ldap.attribute": ["sn"],
-      "read.only": ["false"],
-      "always.read.value.from.ldap": ["true"],
-      "is.mandatory.in.ldap": ["true"],
-      "attribute.default.value": [""],
-      "force.default.value": ["true"],
       "is.binary.attribute": ["false"]
     }
   },
