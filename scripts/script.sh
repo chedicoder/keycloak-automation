@@ -1,6 +1,7 @@
 #!/bin/bash
 set +H
 ./cloning-realm-by-realm-jsonfile.sh
+./create-upadmin-user.sh
 ./creating-user-federation.sh
 ./adding-mappers-to-user-federations.sh
 ./creating-users.sh

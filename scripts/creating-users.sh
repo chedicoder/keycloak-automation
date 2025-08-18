@@ -7,6 +7,7 @@ ADMIN_USER="admin"
 ADMIN_PASS="Password!123"
 CLIENT_ID="admin-cli"
 USERS_FILE="../users.json"
+admx_PASSWORD="admx"
 
 echo "Getting admin token..."
 ADMIN_TOKEN=$(curl -s -k -X POST "$KEYCLOAK_URL/realms/master/protocol/openid-connect/token" \
@@ -89,3 +90,33 @@ jq -c '.[]' "$USERS_FILE" | while read -r user; do
 done
 
 echo "✅ done creating users and adding them to groups."
+
+# Setting password for user admx
+echo "🔑 Setting password for user admx..."
+
+# Récupérer l'ID du user admx
+USER_ID=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
+  "$KEYCLOAK_URL/admin/realms/$REALM/users?username=admx" | jq -r '.[0].id')
+
+if [[ -z "$USER_ID" ]]; then
+  echo "❌ Could not find user ID for admx."
+  exit 1
+fi
+
+RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X PUT \
+  "$KEYCLOAK_URL/admin/realms/$REALM/users/$USER_ID/reset-password" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{
+        \"temporary\": false,
+        \"type\": \"password\",
+        \"value\": \"$admx_PASSWORD\"
+      }")
+
+if [[ "$RESPONSE_CODE" == "204" ]]; then
+  echo "✔️ Password set successfully for user '$USERNAME'."
+else
+  echo "❌ Failed to set password for user '$USERNAME'. HTTP code: $RESPONSE_CODE"
+fi
+echo "✔️ All done!"
+
