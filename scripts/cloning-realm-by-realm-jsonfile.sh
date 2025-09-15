@@ -13,9 +13,9 @@ ADMIN_PASS="Password!123"
 CLIENT_ID="admin-cli"
 
 
-# Getting admin token
+# Getting admin token from source keycloak realm
 echo "Getting admin token..."
-ADMIN_TOKEN=$(curl -s -k -X POST "$KEYCLOAK_URL/realms/master/protocol/openid-connect/token" \
+ADMIN_TOKEN=$(curl -s -k -X POST "$KEYCLOAK_EXPORT_URL/realms/master/protocol/openid-connect/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "username=$ADMIN_USER" \
   -d "password=$ADMIN_PASS" \
@@ -34,6 +34,21 @@ curl -s -k -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -o dxp-realm-dm.json
+
+
+# Getting admin token from target keycloak realm
+echo "Getting admin token..."
+ADMIN_TOKEN=$(curl -s -k -X POST "$KEYCLOAK_URL/realms/master/protocol/openid-connect/token" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=$ADMIN_USER" \
+  -d "password=$ADMIN_PASS" \
+  -d 'grant_type=password' \
+  -d "client_id=$CLIENT_ID" | jq -r '.access_token')
+
+if [[ -z "$ADMIN_TOKEN" || "$ADMIN_TOKEN" == "null" ]]; then
+  echo "Failed to get admin token."
+  exit 1
+fi
 
 # clone dxp realm (importing)
 echo "Cloning dxp realm ..."
