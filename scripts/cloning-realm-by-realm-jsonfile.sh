@@ -28,7 +28,7 @@ if [[ -z "$ADMIN_TOKEN" || "$ADMIN_TOKEN" == "null" ]]; then
 fi
 
 
-# Downloading the dxp realm json file from other keycloak server (exporting)
+# Downloading the dxp realm json file from source keycloak server (exporting)
 curl -s -k -X POST \
   "$KEYCLOAK_EXPORT_URL/admin/realms/master/partial-export?exportClients=true&exportGroupsAndRoles=true" \
   -H "Content-Type: application/json" \
@@ -50,7 +50,7 @@ if [[ -z "$ADMIN_TOKEN" || "$ADMIN_TOKEN" == "null" ]]; then
   exit 1
 fi
 
-# clone dxp realm (importing)
+# clone dxp realm to target keycloak server (importing)
 echo "Cloning dxp realm ..."
 envsubst < dxp-realm.json > dxp-realm-final.json
 curl -s -k -X POST $KEYCLOAK_URL/admin/realms   -H "Authorization: Bearer $ADMIN_TOKEN"   -H "Content-Type: application/json"   --data-binary @dxp-realm-final.json

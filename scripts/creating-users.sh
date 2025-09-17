@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Ce script crée les users, affecte les users à leurs groupes
+# il crée un password de user admx
 set +H
 
 KEYCLOAK_URL="http://localhost:8080"
