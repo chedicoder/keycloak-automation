@@ -1,18 +1,31 @@
 [
     {
+    "name": "local mapper",
     "protocol": "openid-connect",
-    "protocolMapper": "oidc-usermodel-attribute-mapper",
-    "name": "map1",
+    "protocolMapper": "oidc-group-membership-mapper",
+    "consentRequired": false,
     "config": {
-        "claim.name": "jnjnjn",
-        "user.attribute": "email",
-        "jsonType.label": "String",
+        "full.path": "false",
+        "userinfo.token.claim": "true",
+        "multivalued": "true",
         "id.token.claim": "true",
         "access.token.claim": "true",
-        "lightweight.claim": "false",
-        "userinfo.token.claim": "true",
-        "introspection.token.claim": "true"   
-       },
-    "clients": ["cpq-ui"]   
+        "claim.name": "iam_roles"
+    },
+    "clients": ["avm-admin-cli","dxp-system","offermanager-ui"]   
+    }
+,
+    {
+    "name": "Last Login Time Mapper",
+    "protocol": "openid-connect",
+    "protocolMapper": "oidc-last-login-time-mapper",
+    "consentRequired": false,
+    "config": {
+        "id.token.claim": "false",
+        "access.token.claim": "true",
+        "claim.name": "last-login-time",
+        "userinfo.token.claim": "false"
+    },
+    "clients": ["avm-admin-cli"]  
     }
 ]

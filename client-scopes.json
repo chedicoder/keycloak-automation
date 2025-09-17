@@ -1,26 +1,26 @@
 [
   {
-    "name": "test1",
-    "description": "ghghghghg",
-    "type": "default",
+    "name": "minio-authorization",
+    "description": "",
     "protocol": "openid-connect",
+    "type": "",
     "attributes": {
-      "display.on.consent.screen": "true",
-      "consent.screen.text": "xsdfsdfsf",
-      "include.in.token.scope": "false",
-      "gui.order": "3"
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true",
+        "gui.order": "",
+        "consent.screen.text": ""
     }
-  },
+},
   {
-    "name": "test2",
-    "description": "ghghghghg",
-    "type": "default",
+    "name": "openid",
+    "description": "",
     "protocol": "openid-connect",
+    "type": "",
     "attributes": {
-      "display.on.consent.screen": "true",
-      "consent.screen.text": "xsdfsdfsf",
-      "include.in.token.scope": "false",
-      "gui.order": "3"
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true",
+        "gui.order": "",
+        "consent.screen.text": ""
     }
-  }
+}
 ]

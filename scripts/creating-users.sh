@@ -4,13 +4,13 @@
 # il crée un password de user admx
 set +H
 
-KEYCLOAK_URL="http://localhost:8080"
-REALM="test"
-ADMIN_USER="chedi"
-ADMIN_PASS="123456789"
+KEYCLOAK_URL="https://app.msicdev.iamdg.net.ma/auth"
+REALM="dxp"
+ADMIN_USER="admin"
+ADMIN_PASS="Password!123"
 CLIENT_ID="admin-cli"
 USERS_FILE="../users.json"
-admx_PASSWORD="admx"
+admx_PASSWORD="ADMX"
 
 echo "Getting admin token..."
 ADMIN_TOKEN=$(curl -s -k -X POST "$KEYCLOAK_URL/realms/master/protocol/openid-connect/token" \

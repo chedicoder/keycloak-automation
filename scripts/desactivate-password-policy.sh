@@ -1,9 +1,6 @@
 #!/bin/bash
 set +H
 
-# Il faut définir la taille maximale de groupes à exporter
-# ici j'ai fixé à 500
-
 KEYCLOAK_URL="https://app.msicdev.iamdg.net.ma/auth"
 REALM="dxp"
 ADMIN_USER="admin"
@@ -24,12 +21,10 @@ if [[ -z "$ADMIN_TOKEN" || "$ADMIN_TOKEN" == "null" ]]; then
     exit 1
 fi
 
-echo "📂 Fetching groups from realm '$REALM'..."
-curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
-     "$KEYCLOAK_URL/admin/realms/$REALM/groups?search=&first=0&max=500&global=false" | jq -r '.[].name' > "$OUTPUT_FILE"
-
-if [[ $? -eq 0 ]]; then
-    echo "✅ Groups exported to $OUTPUT_FILE"
-else
-    echo "❌ Failed to export groups."
-fi
+# Choisir la longueur de password (6), ou ne mettre rien "" pour desactiver le check de la longueur
+curl -s -k -X PUT "https://$KEYCLOAK_URL/admin/realms/dxp" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "passwordPolicy": "length(6)" 
+  }'

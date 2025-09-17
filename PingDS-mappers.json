@@ -1,5 +1,60 @@
 [
   {
+    "name": "active-status",
+    "providerId": "user-attribute-ldap-mapper",
+    "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
+    "config": {
+        "ldap.attribute": [
+            "inetUserStatus"
+        ],
+        "attribute.force.default": [
+            "true"
+        ],
+        "is.mandatory.in.ldap": [
+            "true"
+        ],
+        "is.binary.attribute": [
+            "false"
+        ],
+        "read.only": [
+            "false"
+        ],
+        "always.read.value.from.ldap": [
+            "false"
+        ],
+        "user.model.attribute": [
+            "inetUserStatus"
+        ]
+    }
+},{
+    "name": "common-name",
+    "providerId": "user-attribute-ldap-mapper",
+    "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
+    "config": {
+        "ldap.attribute": [
+            "cn"
+        ],
+        "is.mandatory.in.ldap": [
+            "true"
+        ],
+        "attribute.force.default": [
+            "false"
+        ],
+        "is.binary.attribute": [
+            "false"
+        ],
+        "always.read.value.from.ldap": [
+            "false"
+        ],
+        "read.only": [
+            "false"
+        ],
+        "user.model.attribute": [
+            "username"
+        ]
+    }
+},
+  {
     "name": "lang",
     "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
     "providerId": "user-attribute-ldap-mapper",
@@ -14,6 +69,121 @@
       "is.binary.attribute": ["false"]
     }
   },
+  {
+    "name": "interim-ad-username",
+    "providerId": "user-attribute-ldap-mapper",
+    "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
+    "config": {
+        "ldap.attribute": [
+            "interimADUsername"
+        ],
+        "attribute.force.default": [
+            "false"
+        ],
+        "is.mandatory.in.ldap": [
+            "false"
+        ],
+        "is.binary.attribute": [
+            "false"
+        ],
+        "read.only": [
+            "false"
+        ],
+        "always.read.value.from.ldap": [
+            "false"
+        ],
+        "user.model.attribute": [
+            "interimADUsername"
+        ]
+    }
+},
+{
+    "name": "preferred-lang",
+    "providerId": "user-attribute-ldap-mapper",
+    "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
+    "config": {
+        "ldap.attribute": [
+            "preferredLanguage"
+        ],
+        "attribute.default.value": [
+            "fr"
+        ],
+        "attribute.force.default": [
+            "true"
+        ],
+        "is.mandatory.in.ldap": [
+            "true"
+        ],
+        "is.binary.attribute": [
+            "false"
+        ],
+        "always.read.value.from.ldap": [
+            "false"
+        ],
+        "read.only": [
+            "false"
+        ],
+        "user.model.attribute": [
+            "preferredLanguage"
+        ]
+    }
+},
+{
+    "name": "preferred-locale",
+    "providerId": "user-attribute-ldap-mapper",
+    "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
+    "config": {
+        "ldap.attribute": [
+            "preferredLocale"
+        ],
+        "is.mandatory.in.ldap": [
+            "true"
+        ],
+        "attribute.force.default": [
+            "true"
+        ],
+        "is.binary.attribute": [
+            "false"
+        ],
+        "always.read.value.from.ldap": [
+            "false"
+        ],
+        "read.only": [
+            "false"
+        ],
+        "user.model.attribute": [
+            "preferredLocale"
+        ]
+    }
+},
+{
+    "name": "referenced-ad-username",
+    "providerId": "user-attribute-ldap-mapper",
+    "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
+    "config": {
+        "ldap.attribute": [
+            "referencedADUsername"
+        ],
+        "is.mandatory.in.ldap": [
+            "false"
+        ],
+        "attribute.force.default": [
+            "false"
+        ],
+        "is.binary.attribute": [
+            "false"
+        ],
+        "read.only": [
+            "false"
+        ],
+        "always.read.value.from.ldap": [
+            "false"
+        ],
+        "user.model.attribute": [
+            "referencedADUsername"
+        ]
+    }
+},
   {
     "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
     "name": "group",

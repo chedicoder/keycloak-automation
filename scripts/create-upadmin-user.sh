@@ -1,16 +1,16 @@
 #!/bin/bash
 set +H
 
-KEYCLOAK_URL="http://localhost:8080"
-REALM="test"
-ADMIN_USER="chedi"
-ADMIN_PASS="123456789"
+KEYCLOAK_URL="https://app.msicdev.iamdg.net.ma/auth"
+REALM="dxp"
+ADMIN_USER="admin"
+ADMIN_PASS="Password!123"
 CLIENT_ID="admin-cli"
 USERS_JSON="../users.json"
 upadmin_PASSWORD="upadmin"
 
 echo "Getting admin token..."
-ADMIN_TOKEN=$(curl -s -X POST "$KEYCLOAK_URL/realms/master/protocol/openid-connect/token" \
+ADMIN_TOKEN=$(curl -s -k -X POST "$KEYCLOAK_URL/realms/master/protocol/openid-connect/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "username=$ADMIN_USER" \
   -d "password=$ADMIN_PASS" \
@@ -23,7 +23,7 @@ if [[ -z "$ADMIN_TOKEN" || "$ADMIN_TOKEN" == "null" ]]; then
 fi
 
 # Charger la liste des groupes existants
-GROUPS_JSON=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" "$KEYCLOAK_URL/admin/realms/$REALM/groups")
+GROUPS_JSON=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" "$KEYCLOAK_URL/admin/realms/$REALM/groups")
 
 # Extraire l'utilisateur upadmin depuis le JSON
 USER=$(jq -c '.[] | select(.username=="upadmin")' "$USERS_JSON")
@@ -38,7 +38,7 @@ FIRSTNAME=$(echo "$USER" | jq -r '.firstName')
 LASTNAME=$(echo "$USER" | jq -r '.lastName')
 
 # Vérifier si le user existe déjà
-EXISTS=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
+EXISTS=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
   "$KEYCLOAK_URL/admin/realms/$REALM/users?username=$USERNAME" | jq -r '.[0].username // empty')
 
 if [[ "$EXISTS" == "$USERNAME" ]]; then
@@ -46,7 +46,7 @@ if [[ "$EXISTS" == "$USERNAME" ]]; then
 else
   # Créer le user
   echo "➕ Creating user '$USERNAME'..."
-  curl -s -X POST "$KEYCLOAK_URL/admin/realms/$REALM/users" \
+  curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/users" \
     -H "Authorization: Bearer $ADMIN_TOKEN" \
     -H "Content-Type: application/json" \
     -d "{
@@ -60,7 +60,7 @@ else
 fi
 
 # Récupérer l'ID du user
-USER_ID=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
+USER_ID=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
   "$KEYCLOAK_URL/admin/realms/$REALM/users?username=$USERNAME" | jq -r '.[0].id')
 
 # Ajouter le user aux groupes
@@ -71,7 +71,7 @@ for group in $(echo "$USER" | jq -r '.groups[]'); do
   # Créer le groupe si inexistant
   if [[ -z "$GROUP_ID" ]]; then
     echo "⚠️ Group '$group' not found. Creating..."
-    RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$KEYCLOAK_URL/admin/realms/$REALM/groups" \
+    RESPONSE_CODE=$(curl -s -k -o /dev/null -w "%{http_code}" -X POST "$KEYCLOAK_URL/admin/realms/$REALM/groups" \
       -H "Authorization: Bearer $ADMIN_TOKEN" \
       -H "Content-Type: application/json" \
       -d "{\"name\": \"$group\"}")
@@ -82,12 +82,12 @@ for group in $(echo "$USER" | jq -r '.groups[]'); do
     fi
 
     # Recharger la liste des groupes après création
-    GROUPS_JSON=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" "$KEYCLOAK_URL/admin/realms/$REALM/groups")
+    GROUPS_JSON=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" "$KEYCLOAK_URL/admin/realms/$REALM/groups")
     GROUP_ID=$(echo "$GROUPS_JSON" | jq -r --arg g "$group" '.[] | select(.name==$g) | .id')
   fi
 
   # Ajouter l'utilisateur au groupe
-  curl -s -X PUT "$KEYCLOAK_URL/admin/realms/$REALM/users/$USER_ID/groups/$GROUP_ID" \
+  curl -s -k -X PUT "$KEYCLOAK_URL/admin/realms/$REALM/users/$USER_ID/groups/$GROUP_ID" \
     -H "Authorization: Bearer $ADMIN_TOKEN" > /dev/null
   echo "➕ User $USERNAME added to group $group."
 done
@@ -97,7 +97,7 @@ done
 echo "🔑 Setting password for user upadmin..."
 
 # Récupérer l'ID du user upadmin
-USER_ID=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
+USER_ID=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
   "$KEYCLOAK_URL/admin/realms/$REALM/users?username=upadmin" | jq -r '.[0].id')
 
 if [[ -z "$USER_ID" ]]; then
@@ -105,7 +105,7 @@ if [[ -z "$USER_ID" ]]; then
   exit 1
 fi
 
-RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X PUT \
+RESPONSE_CODE=$(curl -s -k -o /dev/null -w "%{http_code}" -X PUT \
   "$KEYCLOAK_URL/admin/realms/$REALM/users/$USER_ID/reset-password" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \

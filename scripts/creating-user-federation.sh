@@ -1,7 +1,7 @@
 #!/bin/bash
 set +H  
 
-KEYCLOAK_URL="https://app.msicdev.iamdg.net.ma"
+KEYCLOAK_URL="https://app.msicdev.iamdg.net.ma/auth"
 REALM="dxp"
 ADMIN_USER="admin"
 ADMIN_PASS="Password!123"
@@ -37,7 +37,7 @@ curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/components" \
     "name": "PingDS",
     "config": {
         "enabled": [
-            "false"
+            "true"
         ],
         "vendor": [
             "rhds"
@@ -185,7 +185,7 @@ curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/components" \
             "simple"
         ],
         "bindDn": [
-            "uid=admin"
+            "CN=ssoModernisationSic,OU=ComptesApplicatifs,DC=iamdg,DC=net,DC=ma"
         ],
         "bindCredential": [
             "sso$modernSic*25"

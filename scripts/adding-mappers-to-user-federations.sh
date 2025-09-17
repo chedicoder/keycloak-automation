@@ -1,10 +1,10 @@
 #!/bin/bash
 set +H  
 
-KEYCLOAK_URL="http://localhost:8080"
-REALM="test"
-ADMIN_USER="chedi"
-ADMIN_PASS="123456789"
+KEYCLOAK_URL="https://app.msicdev.iamdg.net.ma/auth"
+REALM="dxp"
+ADMIN_USER="admin"
+ADMIN_PASS="Password!123"
 CLIENT_ID="admin-cli"
 MAPPER_FILE="../PingDS-mappers.json"
 PingDS_name="PingDS"

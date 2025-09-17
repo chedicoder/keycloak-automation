@@ -8,7 +8,7 @@ set +H
 ./adding-mappers-to-user-federations.sh
 ./creating-users.sh
 ./creating-roles.sh
-./assigning-roles-to-users.sh
+./assigning-roles-to-user.sh
 ./creating-client-scopes.sh
 ./creating-mappers-of-client-scopes.sh
 ./creating-clients.sh
