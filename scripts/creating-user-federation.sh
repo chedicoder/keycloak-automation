@@ -1,14 +1,12 @@
 #!/bin/bash
 set +H  
 
-KEYCLOAK_URL="http://localhost:8080"
-REALM="test"
-ADMIN_USER="chedi"
-ADMIN_PASS="123456789"
+KEYCLOAK_URL="https://app.msicdev.iamdg.net.ma"
+REALM="dxp"
+ADMIN_USER="admin"
+ADMIN_PASS="Password!123"
 CLIENT_ID="admin-cli"
 # Get the Pingds bindcredential from secret dirmanager.pw in secrets of pingds ns
-export PING_DS_BIND_CREDENTIAL="7xZrAR1ITrpLvOSWlM8CeS5JmqCjSL4c"
-export LDAP_MT_BIND_CREDENTIAL="sso$modernSic*25"
 
 PingDS_name="PingDS"
 LDAP_name="LDAP_MT"
@@ -66,7 +64,7 @@ curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/components" \
             "uid=admin"
         ],
         "bindCredential": [
-            "cscscscsc"
+            "CocjtHLIOqaMrECD2QV2SxMQXzaW85fU"
         ],
         "editMode": [
             "WRITABLE"
