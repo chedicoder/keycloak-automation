@@ -4,7 +4,7 @@ set +H
 # Il faut définir la taille maximale de groupes à exporter
 # ici j'ai fixé à 500
 
-KEYCLOAK_URL="https://app.msicdev.iamdg.net.ma/auth"
+KEYCLOAK_URL="https://app.msicint.iamdg.net.ma/auth"
 REALM="dxp"
 ADMIN_USER="admin"
 ADMIN_PASS="Password!123"

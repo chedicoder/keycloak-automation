@@ -55,21 +55,6 @@
     }
 },
   {
-    "name": "lang",
-    "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
-    "providerId": "user-attribute-ldap-mapper",
-    "config": {
-      "user.model.attribute": ["preferredLanguage"],
-      "ldap.attribute": ["preferredLanguage"],
-      "read.only": ["false"],
-      "always.read.value.from.ldap": ["false"],
-      "is.mandatory.in.ldap": ["true"],
-      "attribute.default.value": ["fr"],
-      "force.default.value": ["true"],
-      "is.binary.attribute": ["false"]
-    }
-  },
-  {
     "name": "interim-ad-username",
     "providerId": "user-attribute-ldap-mapper",
     "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
@@ -185,25 +170,52 @@
     }
 },
   {
-    "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
     "name": "group",
     "providerId": "group-ldap-mapper",
+    "providerType": "org.keycloak.storage.ldap.mappers.LDAPStorageMapper",
     "config": {
-        "membership.attribute.type": ["DN"],
-        "mode": ["LDAP_ONLY"],
-        "user.roles.retrieve.strategy": ["LOAD_GROUPS_BY_MEMBER_ATTRIBUTE"],
-        "groups.dn": ["dzd"],
-        "group.name.ldap.attribute": ["cn"],
-        "group.object.classes": ["group"],
-        "preserve.group.inheritance": ["true"],
-        "ignore.missing.groups": ["true"],
-        "membership.ldap.attribute": ["member"],
-        "membership.user.ldap.attribute": ["sAMAccountName"],
-        "groups.ldap.filter": [""],
-        "memberof.ldap.attribute": ["memberOf"],
-        "mapped.group.attributes": ["dzd"],
-        "drop.non.existing.groups.during.sync": ["true"],
-        "groups.path": ["/"]
+        "membership.attribute.type": [
+            "DN"
+        ],
+        "group.name.ldap.attribute": [
+            "cn"
+        ],
+        "membership.user.ldap.attribute": [
+            "sAMAccountName"
+        ],
+        "preserve.group.inheritance": [
+            "false"
+        ],
+        "groups.dn": [
+            "ou=groups,ou=identities"
+        ],
+        "mapped.group.attributes": [
+            "uniqueMember"
+        ],
+        "mode": [
+            "LDAP_ONLY"
+        ],
+        "user.roles.retrieve.strategy": [
+            "LOAD_GROUPS_BY_MEMBER_ATTRIBUTE"
+        ],
+        "ignore.missing.groups": [
+            "false"
+        ],
+        "membership.ldap.attribute": [
+            "uniqueMember"
+        ],
+        "group.object.classes": [
+            "groupOfUniqueNames"
+        ],
+        "memberof.ldap.attribute": [
+            "memberOf"
+        ],
+        "drop.non.existing.groups.during.sync": [
+            "false"
+        ],
+        "groups.path": [
+            "/"
+        ]
     }
 }
 ]

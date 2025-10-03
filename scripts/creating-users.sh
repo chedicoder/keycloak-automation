@@ -98,7 +98,7 @@ echo "✅ done creating users and adding them to groups."
 echo "🔑 Setting password for user admx..."
 
 # Récupérer l'ID du user admx
-USER_ID=$(curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
+USER_ID=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \
   "$KEYCLOAK_URL/admin/realms/$REALM/users?username=admx" | jq -r '.[0].id')
 
 if [[ -z "$USER_ID" ]]; then
@@ -106,7 +106,7 @@ if [[ -z "$USER_ID" ]]; then
   exit 1
 fi
 
-RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X PUT \
+RESPONSE_CODE=$(curl -s -k -o /dev/null -w "%{http_code}" -X PUT \
   "$KEYCLOAK_URL/admin/realms/$REALM/users/$USER_ID/reset-password" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \

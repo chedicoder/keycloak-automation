@@ -1,6 +1,9 @@
 #!/bin/bash
 set +H  
 
+# il faut ajouter au client EB-CLIENT (default) : openid et minio clientscopes
+# il faut ajouter au client avm-admin-cli (default) : acr, address,email,microprofile-jwt,offline_access,openid,phone,profile,roles,web-origins
+
 KEYCLOAK_URL="https://app.msicdev.iamdg.net.ma/auth"
 REALM="dxp"
 ADMIN_USER="admin"
