@@ -1,0 +1,24 @@
+[
+  {
+    "client": "EB-CLIENT",
+    "scopes": [
+      { "name": "openid", "type": "default" },
+      { "name": "minio", "type": "default" }
+    ]
+  },
+  {
+    "client": "avm-admin-cli",
+    "scopes": [
+      { "name": "acr", "type": "default" },
+      { "name": "address", "type": "default" },
+      { "name": "email", "type": "default" },
+      { "name": "microprofile-jwt", "type": "default" },
+      { "name": "offline_access", "type": "default" },
+      { "name": "openid", "type": "default" },
+      { "name": "phone", "type": "default" },
+      { "name": "profile", "type": "default" },
+      { "name": "roles", "type": "default" },
+      { "name": "web-origins", "type": "default" }
+    ]
+  }
+]

@@ -10,9 +10,9 @@ set +H
 ./creating-roles.sh
 ./assigning-roles-to-user.sh
 ./creating-client-scopes.sh
-./creating-mappers-of-client-scopes.sh
+./adding-mappers-of-client-scopes.sh
 ./creating-clients.sh
-./adding-client-scope-to-client.sh 
+./adding-client-scopes-to-clients.sh 
 ./adding-client-mappers-in-client-dedicated-mappers.sh         
 ./change-keycloak-theme.sh
 ./bind-browser-authentication-flow.sh
