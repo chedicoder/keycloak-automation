@@ -1,0 +1,106 @@
+{
+    "providerId": "ldap",
+    "providerType": "org.keycloak.storage.UserStorageProvider",
+    "name": "LDAP_MT",
+    "config": {
+        "enabled": [
+            "false"
+        ],
+        "vendor": [
+            "ad"
+        ],
+        "connectionUrl": [
+            "ldaps://alirfanedc2.iamdg.net.ma:636"
+        ],
+        "startTls": [
+            "false"
+        ],
+        "useTruststoreSpi": [
+            "always"
+        ],
+        "connectionPooling": [
+            "true"
+        ],
+        "connectionTimeout": [
+            ""
+        ],
+        "authType": [
+            "simple"
+        ],
+        "bindDn": [
+            "CN=ssoModernisationSic,OU=ComptesApplicatifs,DC=iamdg,DC=net,DC=ma"
+        ],
+        "bindCredential": [
+            "sso$modernSic*25"
+        ],
+        "editMode": [
+            "READ_ONLY"
+        ],
+        "usersDn": [
+            "DC=iamdg,DC=net,DC=ma"
+        ],
+        "usernameLDAPAttribute": [
+            "sAMAccountName"
+        ],
+        "rdnLDAPAttribute": [
+            "cn"
+        ],
+        "uuidLDAPAttribute": [
+            "objectGUID"
+        ],
+        "userObjectClasses": [
+            "person,organizationalPerson,user"
+        ],
+        "customUserSearchFilter": [
+            "(sAMAccountName=*)"
+        ],
+        "searchScope": [
+            "1"
+        ],
+        "readTimeout": [
+            ""
+        ],
+        "pagination": [
+            "true"
+        ],
+        "referral": [
+            ""
+        ],
+        "importEnabled": [
+            "true"
+        ],
+        "syncRegistrations": [
+            "true"
+        ],
+        "batchSizeForSync": [
+            ""
+        ],
+        "allowKerberosAuthentication": [
+            "false"
+        ],
+        "useKerberosForPasswordAuthentication": [
+            "false"
+        ],
+        "cachePolicy": [
+            "DEFAULT"
+        ],
+        "usePasswordModifyExtendedOp": [
+            "false"
+        ],
+        "validatePasswordPolicy": [
+            "false"
+        ],
+        "trustEmail": [
+            "false"
+        ],
+        "connectionTrace": [
+            "false"
+        ],
+        "changedSyncPeriod": [
+            "-1"
+        ],
+        "fullSyncPeriod": [
+            "-1"
+        ]
+    }
+}

@@ -1,0 +1,106 @@
+{
+    "providerId": "ldap",
+    "providerType": "org.keycloak.storage.UserStorageProvider",
+    "name": "PingDS",
+    "config": {
+        "enabled": [
+            "true"
+        ],
+        "vendor": [
+            "rhds"
+        ],
+        "connectionUrl": [
+            "ldap://ds-idrepo.pingds:1389"
+        ],
+        "startTls": [
+            "false"
+        ],
+        "useTruststoreSpi": [
+            "always"
+        ],
+        "connectionPooling": [
+            "true"
+        ],
+        "connectionTimeout": [
+            ""
+        ],
+        "authType": [
+            "simple"
+        ],
+        "bindDn": [
+            "uid=admin"
+        ],
+        "bindCredential": [
+            "CocjtHLIOqaMrECD2QV2SxMQXzaW85fU"
+        ],
+        "editMode": [
+            "WRITABLE"
+        ],
+        "usersDn": [
+            "ou=people,ou=identities"
+        ],
+        "usernameLDAPAttribute": [
+            "uid"
+        ],
+        "rdnLDAPAttribute": [
+            "uid"
+        ],
+        "uuidLDAPAttribute": [
+            "entryUUID"
+        ],
+        "userObjectClasses": [
+            "inetuser,iplanet-am-auth-configuration-service,iplanet-am-managed-person,iplanet-am-user-service,iPlanetPreferences,organizationalperson,sunAMAuthAccountLockout,sunFMSAML2NameIdentifier,deviceProfilesContainer,webauthnDeviceProfilesContainer,top,person,inetOrgPerson,msicUser"
+        ],
+        "customUserSearchFilter": [
+            ""
+        ],
+        "searchScope": [
+            "1"
+        ],
+        "readTimeout": [
+            ""
+        ],
+        "pagination": [
+            "true"
+        ],
+        "referral": [
+            ""
+        ],
+        "importEnabled": [
+            "true"
+        ],
+        "syncRegistrations": [
+            "true"
+        ],
+        "batchSizeForSync": [
+            ""
+        ],
+        "allowKerberosAuthentication": [
+            "false"
+        ],
+        "useKerberosForPasswordAuthentication": [
+            "false"
+        ],
+        "cachePolicy": [
+            "DEFAULT"
+        ],
+        "usePasswordModifyExtendedOp": [
+            "false"
+        ],
+        "validatePasswordPolicy": [
+            "false"
+        ],
+        "trustEmail": [
+            "false"
+        ],
+        "connectionTrace": [
+            "false"
+        ],
+        "changedSyncPeriod": [
+            "-1"
+        ],
+        "fullSyncPeriod": [
+            "-1"
+        ]
+    }
+}

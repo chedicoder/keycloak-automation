@@ -10,7 +10,8 @@ CLIENT_ID="admin-cli"
 
 PingDS_name="PingDS"
 LDAP_name="LDAP_MT"
-
+PING_DS_FILE="../pingds.json"
+LDAP_MT_FILE="../ldap_mt.json"
 
 # Getting admin token
 echo "Getting admin token..."
@@ -26,117 +27,23 @@ if [[ -z "$ADMIN_TOKEN" || "$ADMIN_TOKEN" == "null" ]]; then
   exit 1
 fi
 
+if [[ ! -f "$PING_DS_FILE" ]]; then
+  echo "File $PING_DS_FILE not found!"
+  exit 1
+fi
+
+if [[ ! -f "$LDAP_MT_FILE" ]]; then
+  echo "File $LDAP_MT_FILE not found!"
+  exit 1
+fi
+
+
 # Creating PingDS as LDAP provider
 echo "Creating PingDS as LDAP provider..."
 curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/components" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{
-    "providerId": "ldap",
-    "providerType": "org.keycloak.storage.UserStorageProvider",
-    "name": "PingDS",
-    "config": {
-        "enabled": [
-            "true"
-        ],
-        "vendor": [
-            "rhds"
-        ],
-        "connectionUrl": [
-            "ldap://ds-idrepo.pingds:1389"
-        ],
-        "startTls": [
-            "false"
-        ],
-        "useTruststoreSpi": [
-            "always"
-        ],
-        "connectionPooling": [
-            "true"
-        ],
-        "connectionTimeout": [
-            ""
-        ],
-        "authType": [
-            "simple"
-        ],
-        "bindDn": [
-            "uid=admin"
-        ],
-        "bindCredential": [
-            "CocjtHLIOqaMrECD2QV2SxMQXzaW85fU"
-        ],
-        "editMode": [
-            "WRITABLE"
-        ],
-        "usersDn": [
-            "ou=people,ou=identities"
-        ],
-        "usernameLDAPAttribute": [
-            "uid"
-        ],
-        "rdnLDAPAttribute": [
-            "uid"
-        ],
-        "uuidLDAPAttribute": [
-            "entryUUID"
-        ],
-        "userObjectClasses": [
-            "inetuser,iplanet-am-auth-configuration-service,iplanet-am-managed-person,iplanet-am-user-service,iPlanetPreferences,organizationalperson,sunAMAuthAccountLockout,sunFMSAML2NameIdentifier,deviceProfilesContainer,webauthnDeviceProfilesContainer,top,person,inetOrgPerson,msicUser"
-        ],
-        "customUserSearchFilter": [
-            ""
-        ],
-        "searchScope": [
-            "1"
-        ],
-        "readTimeout": [
-            ""
-        ],
-        "pagination": [
-            "true"
-        ],
-        "referral": [
-            ""
-        ],
-        "importEnabled": [
-            "true"
-        ],
-        "syncRegistrations": [
-            "true"
-        ],
-        "batchSizeForSync": [
-            ""
-        ],
-        "allowKerberosAuthentication": [
-            "false"
-        ],
-        "useKerberosForPasswordAuthentication": [
-            "false"
-        ],
-        "cachePolicy": [
-            "DEFAULT"
-        ],
-        "usePasswordModifyExtendedOp": [
-            "false"
-        ],
-        "validatePasswordPolicy": [
-            "false"
-        ],
-        "trustEmail": [
-            "false"
-        ],
-        "connectionTrace": [
-            "false"
-        ],
-        "changedSyncPeriod": [
-            "-1"
-        ],
-        "fullSyncPeriod": [
-            "-1"
-        ]
-    }
-    }'  | grep -oE '[a-f0-9-]{36}'
+  --data-binary @$PING_DS_FILE | grep -oE '[a-f0-9-]{36}'
 
 
 # Test if PingDS was created successfully
@@ -149,118 +56,12 @@ if [[ -z "$PINGDS_ID" ]]; then
   exit 1
 fi
 
-
 # Creating LDAP_MT as LDAP provider...
 echo "Creating LDAP_MT as LDAP provider..."
 curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/components" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{
-    "providerId": "ldap",
-    "providerType": "org.keycloak.storage.UserStorageProvider",
-    "name": "LDAP_MT",
-    "config": {
-        "enabled": [
-            "false"
-        ],
-        "vendor": [
-            "ad"
-        ],
-        "connectionUrl": [
-            "ldaps://alirfanedc2.iamdg.net.ma:636"
-        ],
-        "startTls": [
-            "false"
-        ],
-        "useTruststoreSpi": [
-            "always"
-        ],
-        "connectionPooling": [
-            "true"
-        ],
-        "connectionTimeout": [
-            ""
-        ],
-        "authType": [
-            "simple"
-        ],
-        "bindDn": [
-            "CN=ssoModernisationSic,OU=ComptesApplicatifs,DC=iamdg,DC=net,DC=ma"
-        ],
-        "bindCredential": [
-            "sso$modernSic*25"
-        ],
-        "editMode": [
-            "READ_ONLY"
-        ],
-        "usersDn": [
-            "DC=iamdg,DC=net,DC=ma"
-        ],
-        "usernameLDAPAttribute": [
-            "sAMAccountName"
-        ],
-        "rdnLDAPAttribute": [
-            "cn"
-        ],
-        "uuidLDAPAttribute": [
-            "objectGUID"
-        ],
-        "userObjectClasses": [
-            "person,organizationalPerson,user"
-        ],
-        "customUserSearchFilter": [
-            "(sAMAccountName=*)"
-        ],
-        "searchScope": [
-            "1"
-        ],
-        "readTimeout": [
-            ""
-        ],
-        "pagination": [
-            "true"
-        ],
-        "referral": [
-            ""
-        ],
-        "importEnabled": [
-            "true"
-        ],
-        "syncRegistrations": [
-            "true"
-        ],
-        "batchSizeForSync": [
-            ""
-        ],
-        "allowKerberosAuthentication": [
-            "false"
-        ],
-        "useKerberosForPasswordAuthentication": [
-            "false"
-        ],
-        "cachePolicy": [
-            "DEFAULT"
-        ],
-        "usePasswordModifyExtendedOp": [
-            "false"
-        ],
-        "validatePasswordPolicy": [
-            "false"
-        ],
-        "trustEmail": [
-            "false"
-        ],
-        "connectionTrace": [
-            "false"
-        ],
-        "changedSyncPeriod": [
-            "-1"
-        ],
-        "fullSyncPeriod": [
-            "-1"
-        ]
-    }
-    }' | grep -oE '[a-f0-9-]{36}'
+  --data-binary @$LDAP_MT_FILE | grep -oE '[a-f0-9-]{36}'
 
 # Test if LDAP_MT was created successfully
 LDAP_MT=$(curl -s -k -H "Authorization: Bearer $ADMIN_TOKEN" \

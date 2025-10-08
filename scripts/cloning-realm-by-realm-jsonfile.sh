@@ -1,8 +1,8 @@
 #!/bin/bash
 set +H  
 
-KEYCLOAK_EXPORT_URL="https://app.msicint.iamdg.net.ma/auth"
-KEYCLOAK_URL="https://app.msictst.iamdg.net.ma/auth"
+KEYCLOAK_EXPORT_URL="https://app.msictst.iamdg.net.ma/auth"
+KEYCLOAK_URL="https://app.msicint.iamdg.net.ma/auth"
 
 export ECM_EOC_PCS_ENV_URL="ecm-eoc-pcs.msicint.iamdg.net.ma"
 export APP_ENV_URL="app.msicint.iamdg.net.ma"
