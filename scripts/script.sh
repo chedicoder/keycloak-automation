@@ -16,5 +16,6 @@ set +H
 ./adding-client-scopes-to-clients.sh 
 ./adding-client-mappers-in-client-dedicated-mappers.sh         
 ./change-keycloak-theme.sh
+./create-authentification-flow.sh
 ./bind-browser-authentication-flow.sh
 
