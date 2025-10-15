@@ -3,7 +3,7 @@
     "client": "EB-CLIENT",
     "scopes": [
       { "name": "openid", "type": "default" },
-      { "name": "minio", "type": "default" }
+      { "name": "minio-authorization", "type": "default" }
     ]
   },
   {
@@ -12,13 +12,13 @@
       { "name": "acr", "type": "default" },
       { "name": "address", "type": "default" },
       { "name": "email", "type": "default" },
-      { "name": "microprofile-jwt", "type": "default" },
-      { "name": "offline_access", "type": "default" },
+      { "name": "microprofile-jwt", "type": "optional" },
+      { "name": "offline_access", "type": "optional" },
       { "name": "openid", "type": "default" },
-      { "name": "phone", "type": "default" },
+      { "name": "phone", "type": "optional" },
       { "name": "profile", "type": "default" },
       { "name": "roles", "type": "default" },
-      { "name": "web-origins", "type": "default" }
+      { "name": "web-origins", "type": "optional" }
     ]
   }
 ]

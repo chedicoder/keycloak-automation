@@ -4,7 +4,7 @@
 # il crée un password de user admx
 set +H
 
-KEYCLOAK_URL="https://app.msicdev.iamdg.net.ma/auth"
+KEYCLOAK_URL="https://app.msicdm.iamdg.net.ma/auth"
 REALM="dxp"
 ADMIN_USER="admin"
 ADMIN_PASS="Password!123"
