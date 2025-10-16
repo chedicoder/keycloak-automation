@@ -33,7 +33,7 @@ curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW
 
 
 # change execution requirement 
-# The possible values are DISABLED, ALTERNATIVE and REQUIRED
+# The possible values are DISABLED, ALTERNATIVE, OPTIONAL and REQUIRED
 
 COOKIE_EXECUTION_ID=$(curl -s -k -X GET "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW_ALIAS/executions" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
@@ -45,24 +45,25 @@ if [[ -z "$COOKIE_EXECUTION_ID" ]]; then
 fi
 
 echo "Updating execution requirement to ALTERNATIVE..."
-RESPONSE=$(curl -s -k -o /dev/null -w "%{http_code}" -X PUT "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW_ALIAS/executions" \
+curl -s -k -o /dev/null -w "%{http_code}" -X PUT "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW_ALIAS/executions" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
   -d "{
     \"id\": \"$COOKIE_EXECUTION_ID\",
     \"requirement\": \"ALTERNATIVE\"
   }"
-)
 
-# low priority 
+# low execution priority 
 curl -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/executions/$COOKIE_EXECUTION_ID/lower-priority" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json"
 
-# Raise priority:
+# Raise execution priority:
 curl -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/executions/$COOKIE_EXECUTION_ID/raise-priority" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json"
+
+
 
 # add flow:
 curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW_ALIAS/executions/flow" \
@@ -75,4 +76,30 @@ curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW
     "type": "basic-flow"
 }'
 
-# Le changement de priorité et de requirement est le meme que execution
+# change flow requirement 
+# The possible values are DISABLED, ALTERNATIVE, OPTIONAL and REQUIRED
+
+# Changer displayName par le nom de flow
+FLOW_ID=$(curl -s -k -X GET "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW_ALIAS/executions" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" | jq -r '.[] | select(.displayName == "Msic Custom Lastlogintime lastlogintime forms") | .id')
+
+
+echo "Updating flow requirement to ALTERNATIVE..."
+curl -s -k -o /dev/null -w "%{http_code}" -X PUT "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW_ALIAS/executions" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"id\": \"$FLOW_ID\",
+    \"requirement\": \"ALTERNATIVE\"
+  }"
+
+# low flow priority 
+curl -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/executions/$FLOW_ID/lower-priority" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json"
+
+# Raise flow priority:
+curl -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/executions/$FLOW_ID/raise-priority" \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json"
