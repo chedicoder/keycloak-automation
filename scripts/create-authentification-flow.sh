@@ -300,14 +300,14 @@ Record_Login_Time_PROVIDER_ID=$(curl -s -k -X GET "$KEYCLOAK_URL/admin/realms/$R
   -H "Content-Type: application/json" | jq -r '.[] | select(.displayName == "Record Login Time") | .id')
 
 echo "Adding execution..."
-curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW_ALIAS/executions/execution" \
+curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/Msic%20Custom%20Lastlogintime%20lastlogintime%20forms/executions/execution" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
   -d "{\"provider\": \"$Record_Login_Time_PROVIDER_ID\"}"
 
 # change execution requirement
 
-Record_Login_Time_EXECUTION_ID=$(curl -s -k -X GET "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW_ALIAS/executions" \
+Record_Login_Time_EXECUTION_ID=$(curl -s -k -X GET "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/Msic%20Custom%20Lastlogintime%20lastlogintime%20forms/executions" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" | jq -r ".[] | select(.providerId == \"$Record_Login_Time_PROVIDER_ID\") | .id")
 
@@ -317,7 +317,7 @@ if [[ -z "$Record_Login_Time_EXECUTION_ID" ]]; then
 fi
 
 echo "Updating execution requirement to ALTERNATIVE..."
-curl -s -k -o /dev/null -w "%{http_code}" -X PUT "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW_ALIAS/executions" \
+curl -s -k -o /dev/null -w "%{http_code}" -X PUT "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/Msic%20Custom%20Lastlogintime%20lastlogintime%20forms/executions" \
   -H "Authorization: Bearer $ADMIN_TOKEN" \
   -H "Content-Type: application/json" \
   -d "{
