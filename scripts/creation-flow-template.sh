@@ -13,6 +13,9 @@ curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows" \
     "topLevel": true
 }'
 
+#########################################################################
+# Execution
+
 # Dans l'ajout de chaque execution et flow ou sub-flow on change dans le url la valeur de FLOW_ALIAS
 # par le nom de flow parent (flow principale globale ou sub flow) 
 # Si le nom de flow contient des espaces on change dans le url chaque espace par %20
@@ -64,6 +67,8 @@ curl -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/executions/$CO
   -H "Content-Type: application/json"
 
 
+#################################################################################
+# Flow
 
 # add flow:
 curl -s -k -X POST "$KEYCLOAK_URL/admin/realms/$REALM/authentication/flows/$FLOW_ALIAS/executions/flow" \
