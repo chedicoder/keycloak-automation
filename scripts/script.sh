@@ -1,7 +1,7 @@
 #!/bin/bash
 set +H
-./delete-realm.sh
-./create-realm.sh
+# ./delete-realm.sh
+# ./create-realm.sh
 # ./cloning-realm-by-realm-jsonfile.sh
 ./create-upadmin-user.sh
 ./creating-user-federation.sh
